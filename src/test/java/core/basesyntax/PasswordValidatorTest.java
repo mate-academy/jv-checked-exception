@@ -53,8 +53,7 @@ public class PasswordValidatorTest {
         Assert.assertEquals("You should throws only one exception at signature of the " +
                 "method validate()", 1, exceptionTypes.length);
 
-        Assert.assertEquals("You should throws PasswordValidationException " +
-                        "at signature of the method validate()",
+        Assert.assertEquals("You should add your exception to signature of method validate()",
                 EXCEPTION_NAME, exceptionTypes[0].getName());
     }
 
@@ -65,7 +64,8 @@ public class PasswordValidatorTest {
             boolean result = passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertTrue(result);
         } catch (Exception e) {
-            Assert.fail("Checking of passwords doesn't word correct!");
+            Assert.fail("Checking of passwords doesn't work correct! " +
+                    "\nreceived exception while testing valid input");
         }
     }
 
@@ -96,7 +96,7 @@ public class PasswordValidatorTest {
         User user = new User("login@email", "", "");
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-            Assert.fail("Validation should return true for empty input data");
+            Assert.fail("Validation shouldn't return true for empty input data");
         } catch (Exception ignored) {
         }
     }
@@ -106,7 +106,7 @@ public class PasswordValidatorTest {
         User user = new User("login@email", null, null);
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-            Assert.fail("Validation should return true for null input data");
+            Assert.fail("Validation shouldn't return true for null input data");
         } catch (NullPointerException e) {
             Assert.fail("Validation shouldn't return true for parameters: password - "
                     + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());

@@ -11,5 +11,5 @@ is more or equal to 10. If not, throw exception `PasswordValidationException` wi
 (since it's our custom logic let's create our own, checked, exception).
 
 Method `registerUser()` should call the method `validate()` and handle an exception. 
-If all is well, save the user in the database (use method `saveUser()`), 
+If everything is ok, save user to the database (use method `saveUser()`), 
 if not, print the message "Your passwords are incorrect. Try again.".
