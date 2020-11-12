@@ -13,3 +13,5 @@ is more or equal to 10. If not, throw exception `PasswordValidationException` wi
 Method `registerUser()` should call the method `validate()` and handle an exception. 
 If everything is ok, save user to the database (use method `saveUser()`), 
 if not, print the message "Your passwords are incorrect. Try again.".
+
+### [Try to avoid these common mistakes while solving task](https://mate-academy.github.io/jv-program-common-mistakes/java-core/exceptions/salary-info)
