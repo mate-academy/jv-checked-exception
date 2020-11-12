@@ -14,4 +14,4 @@ Method `registerUser()` should call the method `validate()` and handle an except
 If everything is ok, save user to the database (use method `saveUser()`), 
 if not, print the message "Your passwords are incorrect. Try again.".
 
-### [Try to avoid these common mistakes while solving task](https://mate-academy.github.io/jv-program-common-mistakes/java-core/exceptions/salary-info)
+### [Try to avoid these common mistakes while solving task](https://mate-academy.github.io/jv-program-common-mistakes/java-core/exceptions/password-validation)
