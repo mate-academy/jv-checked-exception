@@ -1,4 +1,4 @@
-package core.basesyntax.exceptions;
+package core.basesyntax;
 
 public class PasswordValidationException extends Exception {
 
