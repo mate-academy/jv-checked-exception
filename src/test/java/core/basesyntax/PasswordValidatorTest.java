@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class PasswordValidatorTest {
     private static final String EXCEPTION_NAME =
-            "core.basesyntax.PasswordValidationException";
+            "core.basesyntax.exception.PasswordValidationException";
 
     private static PasswordValidator passwordValidator;
 
