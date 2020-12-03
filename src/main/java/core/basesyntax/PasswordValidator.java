@@ -1,11 +1,12 @@
 package core.basesyntax;
 
 public class PasswordValidator {
-    public boolean validate(String password, String repeatPassword) {
-        if(password.length() >= 10 || password.equals(repeatPassword)){
+    public boolean validate(String password, String repeatPassword) throws PasswordValidationException {
+        if(password == null || repeatPassword == null ||
+                password.length() < 10 || !password.equals(repeatPassword)){
+            throw new PasswordValidationException("Wrong passwords");
+        } else {
             return true;
-        }else {
-            throw new PasswordValidationException("Wrong password");
         }
     }
 }
