@@ -3,6 +3,7 @@ package core.basesyntax;
 import core.basesyntax.exceptions.PasswordValidationException;
 
 public class PasswordValidator {
+
     public boolean validate(String password,
                             String repeatPassword) throws PasswordValidationException {
 
