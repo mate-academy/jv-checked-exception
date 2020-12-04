@@ -5,12 +5,8 @@ public class UserService {
     public void registerUser(User user) {
         try {
             PasswordValidator validator = new PasswordValidator();
-            if (validator.validate(user.getPassword(), user.getRepeatPassword())) {
-                saveUser(user);
-            } else {
-                throw new PasswordValidationException("Wrong passwords");
-            }
             validator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
         } catch (PasswordValidationException e) {
             System.out.println("Your passwords are incorrect. Try again.");
         }
