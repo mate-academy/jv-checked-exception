@@ -12,7 +12,7 @@ public class UserService {
         saveUser(user);
     }
 
-    public static void saveUser(User user) {
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to data base!!!");
     }
 }
