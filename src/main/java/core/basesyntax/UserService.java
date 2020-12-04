@@ -1,19 +1,12 @@
 package core.basesyntax;
 
 public class UserService {
-
     private PasswordValidator passwordValidator = new PasswordValidator();
 
     public void registerUser(User user) {
-
-        if (user == null || passwordValidator == null) {
-
-            throw new NullPointerException("Not found user or passwordValidator");
-        }
         try {
-            if (passwordValidator.validate(user.getPassword(), user.getRepeatPassword())) {
-                saveUser(user);
-            }
+            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
 
         } catch (PasswordValidationException e) {
 
