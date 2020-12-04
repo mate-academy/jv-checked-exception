@@ -36,7 +36,7 @@ public class UserServiceTest {
         User user = new User("email@email", "Password#123", "Password#123");
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
-        String expectedResult = "User " + user.toString() + " was saved to data base!!!";
+        String expectedResult = "User " + user.toString() + " was saved to database!!!";
         Assert.assertEquals("User " + user.toString() + " should be saved. " +
                 "Let's call method saveUser()", expectedResult, actualMessage);
     }
