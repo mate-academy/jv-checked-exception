@@ -1,11 +1,11 @@
 package core.basesyntax;
 
-import core.basesyntax.exception.PasswordValidationException;
+import core.basesyntax.PasswordValidationException;
 
 public class PasswordValidator {
-    public boolean validate(String password, String repeatPassword) {
-        boolean isValidated = password.length() >= 10 && password.equals(repeatPassword)
-                && password != null;
+    public boolean validate(String password, String repeatPassword) throws PasswordValidationException {
+        boolean isValidated = password != null && password.length() >= 10
+                && password.equals(repeatPassword);
         if (!isValidated) {
             throw new PasswordValidationException("Wrong passwords");
         }
