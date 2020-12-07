@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import core.basesyntax.PasswordValidationException;
-
 public class UserService {
     public void registerUser(User user) {
         PasswordValidator passwordValidator = new PasswordValidator();
