@@ -54,7 +54,7 @@ public class UserServiceTest {
     @Test
     public void registerUser_throwsException() {
         Class<?>[] exceptionTypes = getRegisterMethod().getExceptionTypes();
-        Assert.assertEquals("Don't add core.basesyntax.exception to the signature of method registerUser(). " +
+        Assert.assertEquals("Don't add exception to the signature of method registerUser(). " +
                 "Let's use try-catch construction.", 0, exceptionTypes.length);
     }
 
