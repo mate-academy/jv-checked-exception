@@ -7,7 +7,7 @@ public class PasswordValidator {
             throws PasswordValidationException {
         if (password == null || repeatPassword == null || !password.equals(repeatPassword)
                 || (password.length() < 10)) {
-            throw new PasswordValidationException("Wrongs passwords");
+            throw new PasswordValidationException("Wrong passwords");
         }
         return true;
     }
