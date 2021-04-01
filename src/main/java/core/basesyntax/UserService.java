@@ -5,7 +5,7 @@ import core.basesyntax.exception.PasswordValidationException;
 public class UserService {
     public void registerUser(User user) {
         try {
-            if (PasswordValidator.validate(user.getPassword(), user.getRepeatPassword())) {
+            if (new PasswordValidator().validate(user.getPassword(), user.getRepeatPassword())) {
                 saveUser(user);
             }
         } catch (PasswordValidationException e) {

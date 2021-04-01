@@ -3,10 +3,12 @@ package core.basesyntax;
 import core.basesyntax.exception.PasswordValidationException;
 
 public class PasswordValidator {
-    protected static boolean validate(String password, String repeatPassword)
+    private static final int MIN_PASSWORD_LENGTH = 10;
+
+    protected boolean validate(String password, String repeatPassword)
             throws PasswordValidationException {
         if (password != null && repeatPassword != null) {
-            if (password.equals(repeatPassword) && password.length() >= 10) {
+            if (password.equals(repeatPassword) && password.length() >= MIN_PASSWORD_LENGTH) {
                 return true;
             }
         }
