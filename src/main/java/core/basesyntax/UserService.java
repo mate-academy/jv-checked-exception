@@ -4,10 +4,11 @@ import core.basesyntax.exception.PasswordValidationException;
 
 public class UserService extends PasswordValidator {
     public void registerUser(User user) {
-
         PasswordValidator passwordValidator = new PasswordValidator();
+
         try {
-            if (passwordValidator.validate(user.getPassword(), user.getRepeatPassword())) {
+            if (passwordValidator.validate(user.getPassword(),
+                    user.getRepeatPassword())) {
                 saveUser(user);
             }
         } catch (PasswordValidationException e) {
