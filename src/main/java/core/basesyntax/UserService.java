@@ -10,7 +10,7 @@ public class UserService {
                 saveUser(user);
             }
         } catch (PasswordValidationException e) {
-            System.out.println(("Your passwords are incorrect. Try again."));
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
