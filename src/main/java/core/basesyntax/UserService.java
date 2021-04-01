@@ -1,7 +1,8 @@
 package core.basesyntax;
 
-public class UserService {
+public class UserService extends PasswordValidator{
     public void registerUser(User user) {
+
 
     }
 
