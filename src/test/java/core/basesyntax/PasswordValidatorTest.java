@@ -89,8 +89,8 @@ public class PasswordValidatorTest {
     public void passwordValidate_correctInputData() {
         User user = new User("login@email", "Test_12345", "Test_12345");
         try {
-            //boolean result = passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-            //Assert.assertTrue(result);
+            boolean result = passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            Assert.assertTrue(result);
         } catch (Exception e) {
             Assert.fail("Checking of passwords doesn't work correct! " +
                 "\nreceived exception while testing valid input");
