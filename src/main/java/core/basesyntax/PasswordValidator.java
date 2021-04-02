@@ -5,7 +5,7 @@ import core.basesyntax.exception.PasswordValidationException;
 public class PasswordValidator {
     private static final int MIN_PASSWORD_LENGTH = 8;
 
-    protected boolean validate(String password, String repeatPassword)
+    public boolean validate(String password, String repeatPassword)
             throws PasswordValidationException {
         if (password != null && password.equals(repeatPassword)
                 && password.length() >= MIN_PASSWORD_LENGTH) {
@@ -13,5 +13,4 @@ public class PasswordValidator {
         }
         throw new PasswordValidationException("Wrong passwords");
     }
-
 }
