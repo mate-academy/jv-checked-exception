@@ -5,13 +5,9 @@ import core.basesyntax.exception.PasswordValidationException;
 public class PasswordValidator {
     public boolean validate(String password, String repeatPassword)
             throws PasswordValidationException {
-        if (password == null || repeatPassword == null) {
-            throw new PasswordValidationException("Wrong passwords");
+        if (password != null && (password.equals(repeatPassword) && password.length() >= 10)) {
+            return true;
         }
-        boolean isValidated = password.equals(repeatPassword) && password.length() >= 10;
-        if (!isValidated) {
-            throw new PasswordValidationException("Wrong passwords");
-        }
-        return true;
+        throw new PasswordValidationException("Wrong passwords");
     }
 }
