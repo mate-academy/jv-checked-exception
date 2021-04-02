@@ -10,7 +10,6 @@ public class PasswordValidator {
                 || password.length() < 10) {
             throw new PasswordValidationException("Wrong passwords");
         }
-
         return true;
     }
 }
