@@ -27,7 +27,7 @@ public class PasswordValidatorTest {
         try {
             Class.forName(EXCEPTION_NAME);
         } catch (ClassNotFoundException e) {
-            Assert.fail("Should create a class called 'PasswordValidationException'.");
+            Assert.fail("Should create a class called 'core.basesyntax.PasswordValidator.PasswordValidationException'.");
         }
     }
 
@@ -38,10 +38,10 @@ public class PasswordValidatorTest {
             boolean isInputParamPresent = Arrays.stream(exception.getConstructors())
                 .flatMap(c -> Arrays.stream(c.getParameterTypes()))
                 .anyMatch(t -> t.equals(String.class));
-            Assert.assertEquals("Don't hardcode the message in the exception class, "
+            Assert.assertEquals("Don't hardcode the message in the core.basesyntax.exception class, "
                 + "you should have constructor with message", true, isInputParamPresent);
         } catch (ClassNotFoundException e) {
-            Assert.fail("Create PasswordValidationException class in the 'exception' package ");
+            Assert.fail("Create core.basesyntax.PasswordValidator.PasswordValidationException class in the 'core.basesyntax.exception' package ");
         }
     }
 
@@ -52,9 +52,9 @@ public class PasswordValidatorTest {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
         } catch (ClassNotFoundException e) {
-            Assert.fail("Create PasswordValidationException class in the 'exception' package ");
+            Assert.fail("Create core.basesyntax.PasswordValidator.PasswordValidationException class in the 'core.basesyntax.exception' package ");
         } catch (RuntimeException e) {
-            Assert.fail("You should create a checked exception 'PasswordValidationException'.");
+            Assert.fail("You should create a checked core.basesyntax.exception 'core.basesyntax.PasswordValidator.PasswordValidationException'.");
         } catch (Exception ignored) {
         }
     }
@@ -68,20 +68,20 @@ public class PasswordValidatorTest {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
         } catch (ClassNotFoundException e) {
-            Assert.fail("Should create a class called 'PasswordValidationException'.");
+            Assert.fail("Should create a class called 'core.basesyntax.PasswordValidator.PasswordValidationException'.");
         }
     }
 
     @Test
     public void passwordValidate_throwsExceptionExpected() {
         Class<?>[] exceptionTypes = getValidateMethod().getExceptionTypes();
-        Assert.assertTrue("Add an exception to the signature of method validate()",
+        Assert.assertTrue("Add an core.basesyntax.exception to the signature of method validate()",
             exceptionTypes.length != 0);
 
-        Assert.assertEquals("You should throws only one exception at signature of the " +
+        Assert.assertEquals("You should throws only one core.basesyntax.exception at signature of the " +
             "method validate()", 1, exceptionTypes.length);
 
-        Assert.assertEquals("You should add your exception to signature of method validate()",
+        Assert.assertEquals("You should add your core.basesyntax.exception to signature of method validate()",
             EXCEPTION_NAME, exceptionTypes[0].getName());
     }
 
@@ -93,7 +93,7 @@ public class PasswordValidatorTest {
             Assert.assertTrue(result);
         } catch (Exception e) {
             Assert.fail("Checking of passwords doesn't work correct! " +
-                "\nreceived exception while testing valid input");
+                "\nreceived core.basesyntax.exception while testing valid input");
         }
     }
 
