@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class PasswordValidatorTest {
     private static final String EXCEPTION_NAME =
-        "core.basesyntax.exception.PasswordValidationException";
+            "core.basesyntax.exception.PasswordValidationException";
 
     private static PasswordValidator passwordValidator;
 
@@ -36,10 +36,10 @@ public class PasswordValidatorTest {
         try {
             Class<?> exception = Class.forName(EXCEPTION_NAME);
             boolean isInputParamPresent = Arrays.stream(exception.getConstructors())
-                .flatMap(c -> Arrays.stream(c.getParameterTypes()))
-                .anyMatch(t -> t.equals(String.class));
+                    .flatMap(c -> Arrays.stream(c.getParameterTypes()))
+                    .anyMatch(t -> t.equals(String.class));
             Assert.assertEquals("Don't hardcode the message in the exception class, "
-                + "you should have constructor with message", true, isInputParamPresent);
+                    + "you should have constructor with message", true, isInputParamPresent);
         } catch (ClassNotFoundException e) {
             Assert.fail("Create PasswordValidationException class in the 'exception' package ");
         }
@@ -76,13 +76,13 @@ public class PasswordValidatorTest {
     public void passwordValidate_throwsExceptionExpected() {
         Class<?>[] exceptionTypes = getValidateMethod().getExceptionTypes();
         Assert.assertTrue("Add an exception to the signature of method validate()",
-            exceptionTypes.length != 0);
+                exceptionTypes.length != 0);
 
         Assert.assertEquals("You should throws only one exception at signature of the " +
-            "method validate()", 1, exceptionTypes.length);
+                "method validate()", 1, exceptionTypes.length);
 
         Assert.assertEquals("You should add your exception to signature of method validate()",
-            EXCEPTION_NAME, exceptionTypes[0].getName());
+                EXCEPTION_NAME, exceptionTypes[0].getName());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class PasswordValidatorTest {
             Assert.assertTrue(result);
         } catch (Exception e) {
             Assert.fail("Checking of passwords doesn't work correct! " +
-                "\nreceived exception while testing valid input");
+                    "\nreceived exception while testing valid input");
         }
     }
 
@@ -103,7 +103,7 @@ public class PasswordValidatorTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.fail("Validation shouldn't return true for parameters: password - "
-                + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());
+                    + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());
         } catch (Exception ignored) {
         }
     }
@@ -114,7 +114,7 @@ public class PasswordValidatorTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.fail("Validation shouldn't return true for parameters: password - "
-                + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());
+                    + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());
         } catch (Exception ignored) {
         }
     }
@@ -137,16 +137,16 @@ public class PasswordValidatorTest {
             Assert.fail("Validation shouldn't return true for null input data");
         } catch (NullPointerException e) {
             Assert.fail("Validation shouldn't return true for parameters: password - "
-                + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());
+                    + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword());
         } catch (Exception ignored) {
         }
     }
 
     private Method getValidateMethod() {
         return Arrays.stream(PasswordValidator.class.getDeclaredMethods())
-            .filter(m -> m.getName().equals("validate"))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Method validate() should be present " +
-                "in the PasswordValidator.class"));
+                .filter(m -> m.getName().equals("validate"))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Method validate() should be present " +
+                        "in the PasswordValidator.class"));
     }
 }
