@@ -10,6 +10,6 @@ public class PasswordValidator {
                 && password.equals(repeatPassword)) {
             return true;
         }
-            throw new PasswordValidationException("Wrong passwords");
+        throw new PasswordValidationException("Wrong passwords");
     }
 }
