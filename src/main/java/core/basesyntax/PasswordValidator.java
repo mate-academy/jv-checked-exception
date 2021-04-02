@@ -7,10 +7,9 @@ public class PasswordValidator {
 
     protected boolean validate(String password, String repeatPassword)
             throws PasswordValidationException {
-        if (password != null && repeatPassword != null) {
-            if (password.equals(repeatPassword) && password.length() >= MIN_PASSWORD_LENGTH) {
-                return true;
-            }
+        if (password != null && password.equals(repeatPassword)
+                && password.length() >= MIN_PASSWORD_LENGTH) {
+            return true;
         }
         throw new PasswordValidationException("Wrong passwords");
     }
