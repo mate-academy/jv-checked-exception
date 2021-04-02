@@ -11,9 +11,9 @@ public class PasswordValidator {
                 && password.length() >= PASSWORD_MAX_LENGTH
                 && password.equals(repeatPassword)) {
             return true;
-        } else {
-            throw new PasswordValidationException("Wrong passwords");
         }
+        throw new PasswordValidationException("Wrong passwords");
     }
 }
+
 
