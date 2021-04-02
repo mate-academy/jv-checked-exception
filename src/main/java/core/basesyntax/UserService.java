@@ -8,7 +8,7 @@ public class UserService {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             if (passwordValidator.validate(user.getPassword(),
-                    user.getRepeatPassword()) == true) {
+                    user.getRepeatPassword())) {
                 saveUser(user);
             }
         } catch (PasswordValidationException e) {
