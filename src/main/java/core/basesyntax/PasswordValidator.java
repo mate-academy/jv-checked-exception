@@ -2,7 +2,6 @@ package core.basesyntax;
 
 import core.basesyntax.exception.PasswordValidationException;
 
-
 public class PasswordValidator {
     public static final int PASSWORD_MAX_LENGTH = 10;
 
