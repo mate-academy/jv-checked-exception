@@ -1,5 +1,7 @@
 package core.basesyntax;
 
+
+import core.basesyntax.exception.PasswordValidationException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
