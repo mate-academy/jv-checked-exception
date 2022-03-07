@@ -18,5 +18,3 @@ If everything is ok, save user to the database (use method `saveUser()`),
 if not, print the message "Your passwords are incorrect. Try again.".
 
 #### [Try to avoid these common mistakes while solving task](https://mate-academy.github.io/jv-program-common-mistakes/java-core/exceptions/password-validation)
-
-**PS: This task will be checked and approved automatically by github, mentor won't review it.**
