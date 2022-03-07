@@ -5,4 +5,3 @@ public class PasswordValidator {
         //write your code here
     }
 }
-
