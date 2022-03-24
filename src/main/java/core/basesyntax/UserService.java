@@ -8,10 +8,11 @@ public class UserService {
             throw new PasswordValidationException("Your passwords are incorrect. Try again.");
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
