@@ -8,7 +8,6 @@ public class UserService {
             validate.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
-            e.printStackTrace();
             System.out.println("Your passwords are incorrect. Try again.");
         }
     }
