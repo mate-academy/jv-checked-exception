@@ -6,7 +6,7 @@ public class UserService {
         passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
