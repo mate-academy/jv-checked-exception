@@ -90,7 +90,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void passwordValidate_exceptionExpected() throws Exception {
+    public void passwordValidate_exceptionExpected() {
         try {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
