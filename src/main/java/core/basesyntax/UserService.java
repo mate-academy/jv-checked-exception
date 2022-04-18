@@ -3,7 +3,8 @@ package core.basesyntax;
 public class UserService {
 
     private final PasswordValidator validator = new PasswordValidator();
-    public void registerUser(User user){
+
+    public void registerUser(User user) {
         //write your code here
 
         try {
@@ -15,7 +16,7 @@ public class UserService {
 
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
