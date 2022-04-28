@@ -4,7 +4,7 @@ public class UserService {
 
     private PasswordValidator valid = new PasswordValidator();
 
-    public void registerUser(User user) throws PasswordValidationException {
+    public void registerUser(User user) {
 
         try {
             valid.validate(user.getPassword(), user.getRepeatPassword());
