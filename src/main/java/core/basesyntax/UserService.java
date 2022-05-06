@@ -3,7 +3,7 @@ package core.basesyntax;
 import java.io.IOException;
 
 public class UserService {
-    public static void registerUser(User user){
+    public static void registerUser(User user) {
         try {
             PasswordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
@@ -12,7 +12,7 @@ public class UserService {
         }
     }
 
-    private static void saveUser(User user){
+    private static void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
