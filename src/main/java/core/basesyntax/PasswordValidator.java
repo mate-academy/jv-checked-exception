@@ -4,15 +4,10 @@ import java.io.IOException;
 
 public class PasswordValidator {
     private static String chars = "\\\'\"@";
-    
+
     public static void validate(String password, String repeatPassword) throws IOException {
         if (!(password.equals(repeatPassword) && password.length() >= 10)) {
-            throw new PasswordValidationException();
-        }
-        for (char c: chars.toCharArray()) {
-            if (password.indexOf((int)c) != -1) {
-                throw new NonValidCaseException();
-            }
+            throw new PasswordValidationException("Ваші паролі неправильні. Спробуйте ще раз.");
         }
     }
 }
