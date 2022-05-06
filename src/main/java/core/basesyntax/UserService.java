@@ -9,6 +9,8 @@ public class UserService {
             saveUser(user);
         } catch (IOException e) {
             System.out.println("Ваші паролі неправильні. Спробуйте ще раз.");
+        } catch (NullPointerException e) {
+            System.out.println("Ваші паролі неправильні. Спробуйте ще раз.");
         }
     }
 
