@@ -1,11 +1,18 @@
 package core.basesyntax;
 
+import java.io.IOException;
+
 public class UserService {
-    public void registerUser(User user){
-        //write your code here
+    public static void registerUser(User user){
+        try {
+            PasswordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
+        } catch (IOException e) {
+            System.out.println("Ваші паролі неправильні. Спробуйте ще раз.");
+        }
     }
 
-    public void saveUser(User user){
+    private static void saveUser(User user){
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
