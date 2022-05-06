@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.io.IOException;
-
 public class UserService {
     public static void registerUser(User user) {
         try {
