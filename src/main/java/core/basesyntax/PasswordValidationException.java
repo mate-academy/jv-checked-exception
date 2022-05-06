@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public class PasswordValidationException extends IOException {
     public PasswordValidationException(String message) {
-        System.out.println(message);
+        super(message);
     }
 }
