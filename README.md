@@ -18,3 +18,18 @@ If everything is ok, save user to the database (use method `saveUser()`),
 if not, print the message "Your passwords are incorrect. Try again.".
 
 #### [Try to avoid these common mistakes while solving task](https://mate-academy.github.io/jv-program-common-mistakes/java-core/exceptions/password-validation)
+vДавайте допоможемо користувачеві зареєструватися :)
+
+Ми повинні впровадити методи:
+
+- `registerUser()` у класі UserService
+- `validate()` у класі PasswordValidator
+
+Метод `validate()` повинен порівняти `password` з `repeatPassword` і перевірити
+якщо їх довжина більша або дорівнює 10. Якщо ні, киньте виняток `PasswordValidationException`
+з повідомленням "Неправильні паролі" (оскільки це наша користувальницька логіка, давайте створимо власний виняток **ПЕРЕВІРЕНО**
+тому що користувач може ввести будь-який пароль, і наш сервіс не повинен бути зламаний. Ми повинні обробляти недійсний регістр і повертати зрозуміле повідомлення).
+
+Метод `registerUser()` повинен викликати метод `validate()` і обробляти виняток.
+Якщо все в порядку, збережіть користувача в базі даних (використовуйте метод `saveUser()`),
+якщо ні, надрукуйте повідомлення «Ваші паролі неправильні. Спробуйте ще раз.».

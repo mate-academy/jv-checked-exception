@@ -35,12 +35,4 @@ public class User {
         this.repeatPassword = repeatPassword;
     }
 
-    @Override
-    public String toString() {
-        return "User{"
-            + "email='" + email + '\''
-            + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
-    }
 }
