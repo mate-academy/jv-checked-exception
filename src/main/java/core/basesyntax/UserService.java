@@ -1,12 +1,12 @@
 package core.basesyntax;
 
 public class UserService {
-    private boolean isCorrect = true;
 
     public UserService() {
     }
 
     public void registerUser(User user) {
+        boolean isCorrect = true;
         PasswordValidator passwordValidator = new PasswordValidator();
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
