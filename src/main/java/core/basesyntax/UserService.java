@@ -1,9 +1,9 @@
 package core.basesyntax;
 
 public class UserService {
-    private PasswordValidator passwordValidator = new PasswordValidator();
 
     public void registerUser(User user) {
+        PasswordValidator passwordValidator = new PasswordValidator();
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
@@ -12,7 +12,7 @@ public class UserService {
         }
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
