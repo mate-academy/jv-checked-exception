@@ -1,9 +1,10 @@
 package core.basesyntax;
 
 public class PasswordValidator {
-    private final static int passwordLength = 10;
+    static int passwordLength = 10;
 
-    public void validate(String password, String repeatPassword) throws PasswordValidationException {
+    public void validate(String password, String repeatPassword)
+            throws PasswordValidationException {
 
         boolean notValidPassword = password == null
                 || repeatPassword == null
