@@ -5,7 +5,7 @@ import core.basesyntax.exceptions.PasswordValidationException;
 public class PasswordValidator {
 
     public static final int PASS_LENGTH = 10;
-    UserService userService = new UserService();
+    private final UserService userService = new UserService();
 
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
