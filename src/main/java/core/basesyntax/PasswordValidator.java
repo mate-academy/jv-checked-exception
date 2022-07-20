@@ -3,16 +3,16 @@ package core.basesyntax;
 import core.basesyntax.exceptions.PasswordValidationException;
 
 public class PasswordValidator {
-
     public static final int PASS_LENGTH = 10;
-    private final UserService userService = new UserService();
 
-    public void validate(String password, String repeatPassword)
+    public static void validate(String password, String repeatPassword)
             throws PasswordValidationException {
-        if (password.equals(repeatPassword) && password.length() >= PASS_LENGTH) {
-            System.out.println("Success!!!");
-        } else {
+        if (password == null || repeatPassword == null) {
+            throw new PasswordValidationException("Passwords shouldn't be empty");
+        }
+        if (!password.equals(repeatPassword) || password.length() < PASS_LENGTH) {
             throw new PasswordValidationException("Wrong passwords");
         }
+
     }
 }
