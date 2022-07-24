@@ -1,3 +1,9 @@
 package core.basesyntax;
 
-//write your code here
+import java.io.IOException;
+
+class PasswordValidationException extends Exception {
+    public PasswordValidationException(String message) {
+        super(message);
+    }
+}
