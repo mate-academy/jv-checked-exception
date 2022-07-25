@@ -1,10 +1,10 @@
 package core.basesyntax;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Method;
@@ -22,60 +22,60 @@ public class UserServiceTest {
         passwordValidator = new PasswordValidator();
     }
 
-    @BeforeClass
+    @Before
     public void beforeTest() {
         System.setOut(new PrintStream(outContent));
     }
 
-    @AfterClass
+    @After
     public void afterTest() {
         outContent.reset();
         System.setOut(originalOut);
     }
 
     @Test
-    public void registerUser_correctInputData() throws PasswordValidationException {
+    public void registerUser_correctInputData() {
         User user = new User("email@email", "Password#123", "Password#123");
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
         String expectedResult = "User " + user.toString() + " was saved to database!!!";
         Assert.assertEquals("User " + user.toString() + " should be saved. " +
-            "Let's call method saveUser()\n", expectedResult, actualMessage);
+                "Let's call method saveUser()\n", expectedResult, actualMessage);
     }
 
     @Test
-    public void registerUser_incorrectInputData() throws PasswordValidationException {
+    public void registerUser_incorrectInputData() {
         User user = new User("email@email", "123", "123");
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
         String expectedResult = "Your passwords are incorrect. Try again.";
         Assert.assertEquals("You should print message: \"" + expectedResult
-            + "\" in catch block, after failed validation\n", expectedResult, actualMessage);
+                + "\" in catch block, after failed validation\n", expectedResult, actualMessage);
     }
 
     @Test
     public void registerUser_throwsException() {
         Class<?>[] exceptionTypes = getRegisterMethod().getExceptionTypes();
         Assert.assertEquals("Don't add exception to the signature of method registerUser(). " +
-            "Let's use try-catch construction\n", 0, String.valueOf(exceptionTypes.length));
+                "Let's use try-catch construction\n", 0, exceptionTypes.length);
     }
 
     private Method getRegisterMethod() {
         return Arrays.stream(UserService.class.getDeclaredMethods())
-            .filter(m -> m.getName().equals("registerUser"))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Method registerUser() should be present " +
-                "in the UserService class"));
+                .filter(m -> m.getName().equals("registerUser"))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Method registerUser() should be present " +
+                        "in the UserService class"));
     }
 
     @Test
     public void passwordValidate_exceptionClassHasConstructor() {
         boolean isInputParamPresent =
-            Arrays.stream(PasswordValidationException.class.getConstructors())
-                .flatMap(c -> Arrays.stream(c.getParameterTypes()))
-                .anyMatch(t -> t.equals(String.class));
+                Arrays.stream(PasswordValidationException.class.getConstructors())
+                        .flatMap(c -> Arrays.stream(c.getParameterTypes()))
+                        .anyMatch(t -> t.equals(String.class));
         Assert.assertEquals("Don't hardcode the message in the exception class, "
-            + "you should have constructor with message\n", true, String.valueOf(isInputParamPresent));
+                + "you should have constructor with message\n", true, isInputParamPresent);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class UserServiceTest {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
         } catch (RuntimeException e) {
-            Assert.assertEquals("You should create a checked exception 'PasswordValidationException'\n", true, String.valueOf(false));
+            Assert.assertEquals("You should create a checked exception 'PasswordValidationException'\n", true, false);
         } catch (Exception ignored) {
         }
     }
@@ -96,29 +96,29 @@ public class UserServiceTest {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
         } catch (Exception e) {
             Assert.assertEquals("Your exception should have a message \"Wrong passwords\"\n",
-                "Wrong passwords", e.getMessage());
+                    "Wrong passwords", e.getMessage());
         }
     }
 
     @Test
     public void passwordValidate_throwsExceptionExpected() {
         Class<?>[] exceptionTypes = getValidateMethod().getExceptionTypes();
-        Assert.assertTrue(exceptionTypes.length != 0,
-                "Add an exception to the signature of method validate()\n");
+        Assert.assertTrue("Add an exception to the signature of method validate()\n",
+                exceptionTypes.length != 0);
 
         Assert.assertEquals("You should throw only one exception in signature of the " +
-            "method validate()\n", 1, String.valueOf(exceptionTypes.length));
+                "method validate()\n", 1, exceptionTypes.length);
 
         Assert.assertEquals("You should add your exception to signature of method validate()\n",
-            "PasswordValidationException", exceptionTypes[0].getSimpleName());
+                "PasswordValidationException", exceptionTypes[0].getSimpleName());
     }
 
     private Method getValidateMethod() {
         return Arrays.stream(PasswordValidator.class.getDeclaredMethods())
-            .filter(m -> m.getName().equals("validate"))
-            .findFirst()
-            .orElseThrow(() -> new RuntimeException("Method validate() should be present " +
-                "in the PasswordValidator class"));
+                .filter(m -> m.getName().equals("validate"))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Method validate() should be present " +
+                        "in the PasswordValidator class"));
     }
 
     @Test
@@ -128,7 +128,7 @@ public class UserServiceTest {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
         } catch (Exception e) {
             Assert.assertEquals("Checking of passwords doesn't work correctly! " +
-                "We got exception while testing a valid input\n", true, String.valueOf(false));
+                    "We got exception while testing a valid input\n", true, false);
         }
     }
 
@@ -138,8 +138,8 @@ public class UserServiceTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for parameters: "
-                + "password - " + user.getPassword()
-                + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, String.valueOf(false));
+                    + "password - " + user.getPassword()
+                    + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
         } catch (Exception ignored) {
         }
     }
@@ -150,8 +150,8 @@ public class UserServiceTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for parameters: "
-                + "password - " + user.getPassword()
-                + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, String.valueOf(false));
+                    + "password - " + user.getPassword()
+                    + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
         } catch (Exception ignored) {
         }
     }
@@ -162,7 +162,7 @@ public class UserServiceTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for empty input data\n",
-                true, String.valueOf(false));
+                    true, false);
         } catch (Exception ignored) {
         }
     }
@@ -173,10 +173,10 @@ public class UserServiceTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for null input data\n",
-                true, String.valueOf(false));
+                    true, false);
         } catch (NullPointerException e) {
             Assert.assertEquals("Validation shouldn't throw NullPointerException for parameters: password - "
-                + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, String.valueOf(false));
+                    + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
         } catch (Exception ignored) {
         }
     }
