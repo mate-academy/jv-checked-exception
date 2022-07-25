@@ -11,7 +11,8 @@ We should implement the methods:
 Method `validate()` should compare the `password` with `repeatPassword` and check
 if their length is more or equal to 10. If not, throw exception `PasswordValidationException`
 with message "Wrong passwords" (since it's our custom logic, let's create our own, **CHECKED**, exception
-because user can put any password and our service shouldn't be broken. We should handle not-valid case and return the understandable message).
+because user can put any password and our service shouldn't be broken.
+We should handle not-valid case and return the understandable message).
 
 Method `registerUser()` should call the method `validate()` and handle the exception.
 If everything is ok, save user to the database (use method `saveUser()`),
