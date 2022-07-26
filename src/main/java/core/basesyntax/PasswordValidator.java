@@ -7,6 +7,4 @@ public class PasswordValidator {
             throw new PasswordValidationException("Wrong passwords");
         }
     }
-
-
 }
