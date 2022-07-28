@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 public class PasswordValidator {
-    public void validate(String password, String repeatPassword){
+    public void validate(String password, String repeatPassword) {
         try {
                 if ((password == null || repeatPassword == null)
                     || password.equals(repeatPassword)
