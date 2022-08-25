@@ -2,6 +2,7 @@ package core.basesyntax;
 
 public class UserService {
     private static final PasswordValidator passwordValidator = new PasswordValidator();
+
     public void registerUser(User user) {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
