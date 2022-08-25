@@ -6,12 +6,12 @@ public class UserService {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
-        } catch (PasswordValidationException e) {
-            System.out.println("Your passwords are incorrect. Try again.");
+        } catch (NullPointerException | PasswordValidationException e) {
+            System.out.println("Null input data");
         }
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
