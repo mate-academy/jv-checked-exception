@@ -34,7 +34,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void registerUser_correctInputData() {
+    public void registerUser_correctInputData() throws PasswordValidationException {
         User user = new User("email@email", "Password#123", "Password#123");
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
@@ -44,7 +44,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void registerUser_incorrectInputData() {
+    public void registerUser_incorrectInputData() throws PasswordValidationException {
         User user = new User("email@email", "123", "123");
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
@@ -90,7 +90,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void passwordValidate_exceptionExpected() throws Exception {
+    public void passwordValidate_exceptionExpected() {
         try {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
