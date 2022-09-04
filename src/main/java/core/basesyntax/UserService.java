@@ -3,7 +3,8 @@ package core.basesyntax;
 public class UserService {
     public void registerUser(User user) {
         PasswordValidator passwordValidator = new PasswordValidator();
-        if (user.getPassword().trim() != "" || user.getRepeatPassword().trim() != "") {
+
+        if (user != null) {
             try {
                 passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
                 saveUser(user);
