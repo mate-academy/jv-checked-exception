@@ -1,11 +1,12 @@
 # jv-checked-exception
 
+-
 ---
 Let's help user to register :)
 
 We should implement the methods:
 
-- `registerUser()` in UserService class
+- `registerUser()` in UserService class.
 - `validate()` in PasswordValidator class
 
 Method `validate()` should compare the `password` with `repeatPassword` and check
