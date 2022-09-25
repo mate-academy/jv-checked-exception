@@ -7,7 +7,7 @@ public class PasswordValidator {
                 throw new PasswordValidationException("Wrong passwords");
             }
         }
-        else if (password == null && repeatPassword == null) {
+        else if (password == null | repeatPassword == null) {
             throw new PasswordValidationException("Enter passwords");
         }
     }
