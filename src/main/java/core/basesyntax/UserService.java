@@ -8,12 +8,12 @@ public class UserService {
         try {
             passwordValidator.validate(password, repeatPassword);
             saveUser(user);
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to database!!!");
     }
 }
