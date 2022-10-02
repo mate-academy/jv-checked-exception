@@ -3,8 +3,8 @@ package core.basesyntax;
 public class UserService {
 
     public void registerUser(User user) throws PasswordValidationException {
-        PasswordValidator passwordValidator = new PasswordValidator();
         try {
+            PasswordValidator passwordValidator = new PasswordValidator();
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
