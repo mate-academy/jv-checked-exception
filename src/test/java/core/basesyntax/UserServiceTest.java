@@ -46,7 +46,11 @@ public class UserServiceTest {
     @Test
     public void registerUser_incorrectInputData() {
         User user = new User("email@email", "123", "123");
-        userService.registerUser(user);
+        try {
+            userService.registerUser(user);
+        } catch (Exception e) {
+//            throw new RuntimeException(e);
+        }
         String actualMessage = outContent.toString().trim();
         String expectedResult = "Your passwords are incorrect. Try again.";
         Assert.assertEquals("You should print message: \"" + expectedResult
