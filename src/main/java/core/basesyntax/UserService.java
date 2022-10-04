@@ -6,11 +6,9 @@ public class UserService {
     public void registerUser(User user) {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-        } catch (PasswordValidationException e) {
-            System.out.println("Wrong passwords");
-            System.exit(0);
-        } finally {
             saveUser(user);
+        } catch (PasswordValidationException e) {
+            System.out.println(e.getMessage());
         }
     }
 
