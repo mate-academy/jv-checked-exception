@@ -1,7 +1,6 @@
 package core.basesyntax;
 
 public class UserService {
-
     private  String password;
     private String repeatPassword;
 

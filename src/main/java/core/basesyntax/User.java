@@ -35,7 +35,6 @@ public class User {
         this.repeatPassword = repeatPassword;
     }
 
-
     @Override
     public String toString() {
         return "User{"
