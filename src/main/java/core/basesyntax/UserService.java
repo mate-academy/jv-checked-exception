@@ -1,8 +1,17 @@
 package core.basesyntax;
 
 public class UserService {
+
+    private  String password;
+    private String repeatPassword;
+
     public void registerUser(User user) {
-        //write your code here
+        PasswordValidator passwordValidator = new PasswordValidator();
+        try {
+            passwordValidator.validate(password, repeatPassword);
+        } catch (PasswordValidationException e) {
+            throw new RuntimeException("Wrong passwords");
+        }
     }
 
     public void saveUser(User user) {
