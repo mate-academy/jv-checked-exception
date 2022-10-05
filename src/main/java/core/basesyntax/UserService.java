@@ -10,7 +10,7 @@ public class UserService {
         try {
             passwordValidator.validate(password, repeatPassword);
         } catch (PasswordValidationException e) {
-            throw new RuntimeException("Wrong passwords");
+            throw new RuntimeException("Your passwords are incorrect. Try again");
         }
     }
 
