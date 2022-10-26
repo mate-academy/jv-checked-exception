@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 public class UserService extends Exception {
-    public void registerUser(User user) throws Exception {
+    public void registerUser(User user) {
         PasswordValidator passwordValidator = new PasswordValidator();
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
