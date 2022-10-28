@@ -16,6 +16,6 @@ public class PasswordValidator {
 
             throw new PasswordValidationException("Wrong password");
 
-            }
+        }
     }
 }
