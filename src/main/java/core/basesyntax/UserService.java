@@ -1,12 +1,12 @@
 package core.basesyntax;
 
 public class UserService {
-    private static final PasswordValidator passwordValidator = new PasswordValidator();
+    private static final PasswordValidator password_Validator = new PasswordValidator();
 
     public void registerUser(User user) {
         UserService userService = new UserService();
         try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            password_Validator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
             throw new RuntimeException("Your passwords are incorrect. Try again.");
