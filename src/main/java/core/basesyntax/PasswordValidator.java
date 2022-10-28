@@ -4,7 +4,9 @@ public class PasswordValidator {
     public void validate(String password, String repeatPassword) throws Exception {
         try {
 
-            if (password.length() < 10 || repeatPassword.length() < 10
+            if (password == null || repeatPassword == null || password.length() < 10
+
+                    || repeatPassword.length() < 10
 
                     || password.length() != repeatPassword.length()) {
 
