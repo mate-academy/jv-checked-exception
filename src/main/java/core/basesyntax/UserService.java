@@ -4,7 +4,6 @@ public class UserService {
     private static final PasswordValidator password_Validator = new PasswordValidator();
 
     public void registerUser(User user) {
-        UserService userService = new UserService();
         try {
             password_Validator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
