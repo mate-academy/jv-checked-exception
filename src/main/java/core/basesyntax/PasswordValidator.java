@@ -4,23 +4,18 @@ public class PasswordValidator {
     public void validate(String password, String repeatPassword) throws Exception {
         try {
 
-            if (password.length() >= 10 && repeatPassword.length() >= 10
+            if (password.length() < 10 || repeatPassword.length() < 10
 
-                    && password.length() == repeatPassword.length()) {
+                    || password.length() != repeatPassword.length()) {
 
-                System.out.println("Right password");
+                System.out.println("Wrong Password");
 
             }
 
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
 
-            if (password.length() < 10 && repeatPassword.length() < 10
-
-                    && password.length() != repeatPassword.length()) {
-
-                throw new Exception("Wrong password");
+            throw new PasswordValidationException("Wrong password");
 
             }
         }
     }
-}
