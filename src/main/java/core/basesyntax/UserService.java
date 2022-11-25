@@ -6,8 +6,7 @@ public class UserService {
             PasswordValidator passwordValidator = new PasswordValidator();
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
-        }
-        catch (PasswordValidationException e) {
+        } catch (PasswordValidationException e) {
             throw new PasswordValidationException("Wrong passwords");
         }
         saveUser(user);
