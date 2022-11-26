@@ -1,9 +1,10 @@
 package core.basesyntax;
 
 public class PasswordValidator {
+    private static final PasswordValidationException p
+            = new PasswordValidationException("Wrong passwords");
     private boolean isEqual;
     private boolean isLongEnough;
-    private static final PasswordValidationException p = new PasswordValidationException("Wrong passwords");
 
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
