@@ -15,7 +15,10 @@ public class PasswordValidator {
         if (password.length() >= 10 && repeatPassword.length() >= 10) {
             isLongEnough = true;
         }
-        if (isEqual != true || isLongEnough != true) {
+        if (isEqual != true) {
+            throw new PasswordValidationException("Wrong passwords");
+        }
+        if (isLongEnough !=true) {
             throw new PasswordValidationException("Wrong passwords");
         }
     }
