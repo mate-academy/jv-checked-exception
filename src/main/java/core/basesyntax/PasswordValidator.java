@@ -16,8 +16,7 @@ public class PasswordValidator {
         }
         if (password.length() >= 10 && repeatPassword.length() >= 10) {
             isLongEnough = true;
-        }
-        else {
+        } else {
             isEqual = false;
             isLongEnough = false;
         }
