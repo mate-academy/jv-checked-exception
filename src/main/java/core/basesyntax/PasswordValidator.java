@@ -18,7 +18,7 @@ public class PasswordValidator {
         if (isEqual != true) {
             throw new PasswordValidationException("Wrong passwords");
         }
-        if (isLongEnough !=true) {
+        if (isLongEnough != true) {
             throw new PasswordValidationException("Wrong passwords");
         }
     }
