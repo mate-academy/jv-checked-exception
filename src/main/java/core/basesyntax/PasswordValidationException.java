@@ -1,3 +1,7 @@
 package core.basesyntax;
+public class PasswordValidationException extends Exception {
 
-//write your code here
+    public PasswordValidationException(String massage) {
+        super(massage);
+    }
+}
