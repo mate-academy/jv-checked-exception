@@ -4,11 +4,11 @@ public class PasswordValidator {
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
         //write your code here
-        if (!password.equals(repeatPassword) ) {
-            throw new PasswordValidationException("Wrong passwords");
-        }
-        ;
-        if (password.length() < 10) {
+        try {
+            if (!password.equals(repeatPassword) || password.length() < 10) {
+                throw new PasswordValidationException("Wrong passwords");
+            }
+        } catch (NullPointerException e) {
             throw new PasswordValidationException("Wrong passwords");
         }
     }
