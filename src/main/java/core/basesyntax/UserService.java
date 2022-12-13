@@ -1,16 +1,20 @@
 package core.basesyntax;
 
-import java.io.IOException;
-
 public class UserService {
-    public void registerUser(User user)  {
+    public void registerUser(User user) {
         //write your code here
+        boolean validate = false;
         try {
-            new PasswordValidator().validate(user.getPassword(), user.getRepeatPassword());
+            validate = new PasswordValidator().validate(user.getPassword(),
+                    user.getRepeatPassword());
         } catch (PasswordValidationException e) {
-            throw new RuntimeException(e + "Your passwords are incorrect. Try again.");
+            throw new RuntimeException(e);
         }
-        saveUser(user);
+        if (validate) {
+            saveUser(user);
+        } else {
+            System.out.println("Your passwords are incorrect. Try again.");
+        }
     }
 
     public void saveUser(User user) {

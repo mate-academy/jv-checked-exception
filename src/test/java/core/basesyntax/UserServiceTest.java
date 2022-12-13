@@ -103,8 +103,8 @@ public class UserServiceTest {
     @Test
     public void passwordValidate_throwsExceptionExpected() {
         Class<?>[] exceptionTypes = getValidateMethod().getExceptionTypes();
-        Assert.assertTrue("Add an exception to the signature of method validate()\n",
-            exceptionTypes.length != 0);
+            Assert.assertTrue("Add an exception to the signature of method validate()\n",
+                exceptionTypes.length != 0);
 
         Assert.assertEquals("You should throw only one exception in signature of the " +
             "method validate()\n", 1, exceptionTypes.length);
