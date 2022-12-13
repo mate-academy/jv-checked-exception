@@ -5,5 +5,4 @@ public class PasswordValidationException extends Exception {
         super(str);
     }
 }
-
 //write your code here
