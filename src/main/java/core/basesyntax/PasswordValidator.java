@@ -5,7 +5,8 @@ public class PasswordValidator {
 
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
-        if (!password.equals(repeatPassword) || password.length() <= MIN_LENGTH_PASSWORD) {
+        if (!password.equals(repeatPassword) || password.length() <= MIN_LENGTH_PASSWORD
+                || password == null || repeatPassword == null) {
             throw new PasswordValidationException("Wrong passwords");
         }
     }
