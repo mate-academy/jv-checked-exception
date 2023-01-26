@@ -4,15 +4,12 @@ public class UserService {
     private PasswordValidator passwordValidator = new PasswordValidator();
 
     public void registerUser(User user) {
-        while (true) {
-            try {
-                passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-                saveUser(user);
-                break;
-            } catch (PasswordValidationException exception) {
-                exception.printMessage();
-                System.out.println("Your passwords are incorrect. Try again.");
-            }
+        try {
+            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
+        } catch (PasswordValidationException exception) {
+            exception.printMessage();
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
