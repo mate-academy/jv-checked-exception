@@ -5,9 +5,6 @@ public class PasswordValidationException extends Exception {
 
     public PasswordValidationException(String message) {
         this.message = message;
-    }
-
-    public void printMessage() {
         System.out.println(message);
     }
 }
