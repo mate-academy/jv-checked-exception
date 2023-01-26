@@ -10,6 +10,7 @@ public class PasswordValidator {
             try {
                 throw new PasswordValidationException("Wrong passwords");
             } catch (PasswordValidationException exception) {
+                exception.printMessage();
             }
         }
     }
