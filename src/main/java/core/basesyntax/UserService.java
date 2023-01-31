@@ -13,8 +13,8 @@ public class UserService {
             pv.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException pve) {
+            System.out.println("Wrong passwords");        
             System.out.println(pve.getMessage());
-            System.out.println("Your passwords are incorrect. Try again.");
         } 
     }
 
