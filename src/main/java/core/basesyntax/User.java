@@ -20,7 +20,10 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        if (password != null) {
+            return password;
+        }
+        return "";
     }
 
     public void setPassword(String password) {
@@ -28,7 +31,11 @@ public class User {
     }
 
     public String getRepeatPassword() {
-        return repeatPassword;
+
+        if (repeatPassword != null) {
+            return repeatPassword;
+        }
+        return "";
     }
 
     public void setRepeatPassword(String repeatPassword) {
