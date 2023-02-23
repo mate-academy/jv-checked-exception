@@ -5,7 +5,7 @@ public class UserService extends PasswordValidator {
         try {
             validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
-        }catch (PasswordValidationException e) {
+        } catch (PasswordValidationException e) {
             new PasswordValidationException("Wrong passwords");
         }
     }
