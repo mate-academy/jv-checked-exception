@@ -8,8 +8,8 @@ We should implement the methods:
 - `registerUser()` in UserService class
 - `validate()` in PasswordValidator class
 
-Method `validate()` should compare the `password` with `repeatPassword` and check
-if their length is more or equal to 10. If not, throw exception `PasswordValidationException`
+.Method `validate()` should compare the `password` with `repeatPassword` and check
+if their length is more or equal to 10 If not, throw exception `PasswordValidationException`
 with message "Wrong passwords" (since it's our custom logic, let's create our own, **CHECKED**, exception
 because user can put any password and our service shouldn't be broken. We should handle not-valid case and return the understandable message).
 
