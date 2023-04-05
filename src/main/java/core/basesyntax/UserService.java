@@ -4,9 +4,9 @@ public class UserService {
     public void registerUser(User user) {
         try {
             PasswordValidator validator = new PasswordValidator();
-            String str1 = user.getPassword();
-            String str2 = user.getRepeatPassword();
-            validator.validate(str1, str2);
+            String userPassword = user.getPassword();
+            String userRepeatPassword = user.getRepeatPassword();
+            validator.validate(userPassword, userRepeatPassword);
             UserService service = new UserService();
             service.saveUser(user);
         } catch (PasswordValidationException a) {

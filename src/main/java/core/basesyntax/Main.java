@@ -1,12 +1,13 @@
 package core.basesyntax;
 
 public class Main {
-    public static void main(String[] args) {
-        String email = "this email";
-        String password = "this password";
-        String repeatPassword = "this password";
-        User user = new User(email, password, repeatPassword);
-        UserService service = new UserService();
-        service.registerUser(user);
+    public static void main(String[] args) throws PasswordValidationException {
+        User user = new User("hunterst@ukr.net", null, null);
+        String data = user.toString();
+        System.out.println(data);
+        String userPassword = user.getPassword();
+        String userRepeatPassword = user.getRepeatPassword();
+        System.out.println(userPassword + "\n" + userRepeatPassword);
+        new PasswordValidator().validate(userPassword, userRepeatPassword);
     }
 }
