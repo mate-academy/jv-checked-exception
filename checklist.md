@@ -19,8 +19,9 @@ decrease code readability.
 #### Remember about informative names of the variables.
 
 #### Don't complicate your code with a lot of empty lines.
-```
+
 Bad example:
+```java
 public int add(int a, int b) {
 
     int result = a + b;
@@ -29,8 +30,9 @@ public int add(int a, int b) {
     return result;
     
 }
-
+```
 Good example:
+```java
 public int add(int a, int b) {
     return a + b;
 }
