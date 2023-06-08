@@ -7,7 +7,8 @@ public class PasswordValidator {
 
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
-        if ((password == null || password.length() < maxLength || !(password.equals(repeatPassword)))) {
+        if ((password == null || password.length() < maxLength
+                || !(password.equals(repeatPassword)))) {
             throw pw;
         }
     }
