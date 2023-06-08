@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.util.Objects;
-
 public class PasswordValidator {
     private static final int maxLength = 10;
     private static final PasswordValidationException pw =
