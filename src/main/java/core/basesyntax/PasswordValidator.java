@@ -1,5 +1,7 @@
 package core.basesyntax;
 
+import java.util.Objects;
+
 public class PasswordValidator {
     private static final int maxLength = 10;
     private static final PasswordValidationException pw =
@@ -7,7 +9,9 @@ public class PasswordValidator {
 
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
-        if ((password.length() < maxLength) && (repeatPassword.length() < maxLength)) {
+        if ((password == null && repeatPassword == null) ||
+                (Objects.requireNonNull(password).length() < maxLength)
+                        && (repeatPassword.length() < maxLength)) {
             throw pw;
         }
     }
