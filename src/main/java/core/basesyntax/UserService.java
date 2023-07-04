@@ -2,6 +2,7 @@ package core.basesyntax;
 
 public class UserService {
     private final PasswordValidator passwordValidator = new PasswordValidator();
+
     public void registerUser(User user) {
         //write your code here
         try {
