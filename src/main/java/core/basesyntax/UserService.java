@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 public class UserService extends PasswordValidator {
-    public void registerUser(User user){
+    public void registerUser(User user) {
         try {
             validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
