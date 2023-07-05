@@ -2,7 +2,16 @@ package core.basesyntax;
 
 public class UserService {
     public void registerUser(User user) {
-        //write your code here
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        try {
+            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
+        } catch (PasswordValidationException e) {
+            System.out.println("User " + user.toString() + " was not saved to database!!!");
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public void saveUser(User user) {
