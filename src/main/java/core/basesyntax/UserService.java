@@ -6,6 +6,7 @@ public class UserService {
     public UserService() {
         this.passwordValidator = new PasswordValidator();
     }
+
     public void registerUser(User user) {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
