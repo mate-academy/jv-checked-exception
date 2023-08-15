@@ -1,9 +1,9 @@
 package core.basesyntax;
 
 public class UserService {
-    private static PasswordValidator pasvalid = new PasswordValidator();
+    private static final PasswordValidator pasvalid = new PasswordValidator();
 
-    public void registerUser(User user) throws PasswordValidationException {
+    public void registerUser(User user) {
         try {
             pasvalid.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
