@@ -6,6 +6,7 @@ public class PasswordValidationException extends IOException {
     public PasswordValidationException() {
         super();
     }
+
     public PasswordValidationException(String message) {
         super(message);
     }
