@@ -11,7 +11,6 @@ public class PasswordValidator implements Closeable {
             if (!password.equals(repeatPassword) || password.length() < MIN_PASSWORD_LENGTH) {
                 throw new PasswordValidationException("Wrong passwords");
             }
-            close();
         } catch (NullPointerException e) {
             throw new PasswordValidationException("Wrong passwords");
         }
