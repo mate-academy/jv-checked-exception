@@ -1,11 +1,9 @@
 package core.basesyntax;
 
-public class PasswordValidationException extends Exception {
-    PasswordValidationException() {
-        super();
-    }
+import java.io.IOException;
 
-    PasswordValidationException(String message) {
+public class PasswordValidationException extends IOException {
+    public PasswordValidationException(String message) {
         super(message);
     }
 }
