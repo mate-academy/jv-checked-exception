@@ -49,6 +49,7 @@ public class UserServiceTest {
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
         String expectedResult = "Your passwords are incorrect. Try again.";
+
         Assert.assertEquals("You should print message: \"" + expectedResult
             + "\" in catch block, after failed validation\n", expectedResult, actualMessage);
     }
