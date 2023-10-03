@@ -20,7 +20,12 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        if (password != null) {
+            return password;
+        } else {
+            return "";
+        }
+
     }
 
     public void setPassword(String password) {
@@ -28,7 +33,11 @@ public class User {
     }
 
     public String getRepeatPassword() {
-        return repeatPassword;
+        if (repeatPassword != null) {
+            return repeatPassword;
+        } else {
+            return "";
+        }
     }
 
     public void setRepeatPassword(String repeatPassword) {
@@ -38,9 +47,9 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-            + "email='" + email + '\''
-            + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
+                + "email='" + email + '\''
+                + ", password='" + password + '\''
+                + ", repeatPassword='" + repeatPassword + '\''
+                + '}';
     }
 }
