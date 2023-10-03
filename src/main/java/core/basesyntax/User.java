@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-public class User {
+public class User extends UserService {
     private String email;
     private String password;
     private String repeatPassword;
