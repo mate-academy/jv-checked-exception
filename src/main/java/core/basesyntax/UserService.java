@@ -23,7 +23,7 @@ public class UserService {
     private void saveUser(User user) {
         System.out.println("User "
                 + user.toString()
-                + " was saved to database!!!" );
+                + " was saved to database!!!");
     }
 
     public static void main(String[] args) {
