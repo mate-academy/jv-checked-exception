@@ -6,12 +6,9 @@ public class UserService {
     public void registerUser(User user) {
         try {
             new PasswordValidator().validate(user.getPassword(), user.getRepeatPassword());
+            this.saveUser(user);
         } catch (PasswordValidationException e) {
             System.out.println("Your passwords are incorrect. Try again.");
-        }
-        if (user.getPassword().length() >= 10
-                && user.getPassword().equals(user.getRepeatPassword())) {
-            this.saveUser(user);
         }
     }
 
