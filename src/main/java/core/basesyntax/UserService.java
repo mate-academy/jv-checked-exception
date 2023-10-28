@@ -1,13 +1,14 @@
 package core.basesyntax;
 
 public class UserService {
-    private PasswordValidator passwordValidator = new PasswordValidator();
+    private final PasswordValidator passwordValidator = new PasswordValidator();
+
     public void registerUser(User user) {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
-            throw new RuntimeException("System was unable to register using. Password requirements are ignored", e);
+            throw new RuntimeException("Password requirements are ignored", e);
         }
     }
 
