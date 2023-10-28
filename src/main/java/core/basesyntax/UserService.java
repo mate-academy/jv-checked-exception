@@ -8,7 +8,7 @@ public class UserService {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
-            throw new RuntimeException("Password requirements are ignored", e);
+            throw new RuntimeException(e);
         }
     }
 
