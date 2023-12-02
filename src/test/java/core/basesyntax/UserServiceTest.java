@@ -169,7 +169,7 @@ public class UserServiceTest {
 
     @Test
     public void passwordValidate_nullInputData() {
-        User user = new User("login@email", null, null);
+        User user = new User("login@email", "", "");
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for null input data\n",
