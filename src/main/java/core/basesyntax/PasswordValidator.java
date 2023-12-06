@@ -2,7 +2,9 @@ package core.basesyntax;
 
 public class PasswordValidator {
     private static final int passwordMinLength = 10;
-    public void validate (String password, String repeatPassword) throws PasswordValidationException {
+
+    public void validate(String password, String repeatPassword) throws
+            PasswordValidationException {
         if (password == "" || repeatPassword == "") {
             throw new PasswordValidationException("Type password");
         }
