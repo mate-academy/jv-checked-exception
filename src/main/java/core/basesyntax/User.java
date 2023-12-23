@@ -43,4 +43,13 @@ public class User {
             + ", repeatPassword='" + repeatPassword + '\''
             + '}';
     }
+
+    public void validate(String password, String repeatPassword) {
+        this.password = getPassword();
+        this.repeatPassword = getRepeatPassword();
+    }
+
+    public void saveUser(User user) {
+        System.out.println("User " + user.toString() + " was saved to database!!!");
+    }
 }
