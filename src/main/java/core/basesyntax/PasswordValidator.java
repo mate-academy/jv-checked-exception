@@ -4,10 +4,9 @@ public class PasswordValidator {
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
         //write your code here
-        if (!password.equals(repeatPassword)) {
+        if (password == null
+                || !password.equals(repeatPassword) || password.length() < 10) {
             throw new PasswordValidationException("Wrong passwords");
-        } else if (password.length() < 10) {
-            throw new PasswordValidationException("Password length must be at least 10 characters");
         }
     }
 }
