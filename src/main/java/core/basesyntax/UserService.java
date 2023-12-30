@@ -8,10 +8,10 @@ public class UserService {
         String repeatPassword = user.getRepeatPassword();
         try {
             passwordValidator.validate(password, repeatPassword);
-        } catch (PasswordValidationException e) {
+            saveUser(user);
+        } catch (PasswordValidationException | NullPointerException e) {
             System.out.println("Your passwords are incorrect. Try again.");
         }
-        saveUser(user);
     }
 
     public void saveUser(User user) {
