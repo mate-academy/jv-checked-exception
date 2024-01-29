@@ -11,10 +11,10 @@ public class PasswordValidator {
     }
 
     public static void validate(
+            String password, String repeatPassword)
+            throws PasswordValidationException {
 
-            String password, String repeatPassword) throws PasswordValidationException {
-
-        if (PasswordValidator.numberChecker(password) == true) {
+        if (PasswordValidator.numberChecker(password)) {
 
             if (password == null
                     || password.length() == 0
