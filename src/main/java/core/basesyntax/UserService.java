@@ -1,18 +1,10 @@
 package core.basesyntax;
 
 public class UserService {
-
-    private final PasswordValidator passwordValidator;
-
-    public UserService() {
-        this.passwordValidator = new PasswordValidator();
-    }
+    private final PasswordValidator passwordValidator = new PasswordValidator();
 
     public void registerUser(User user) {
         try {
-            if (user.getPassword() == null || user.getRepeatPassword() == null) {
-                throw new PasswordValidationException("Password or repeatPassword is null");
-            }
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
