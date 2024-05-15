@@ -7,8 +7,7 @@ public class UserService {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
-        }
-        catch (PasswordValidationException e) {
+        } catch (PasswordValidationException e) {
             System.out.println(e.getMessage());
         }
     }
