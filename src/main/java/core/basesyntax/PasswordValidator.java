@@ -10,8 +10,8 @@ public class PasswordValidator {
                 if (password.length() >= 10) {
                     new UserService();
                 } else {
-                    throw new PasswordValidationException("Your passwords are incorrect. " +
-                            "Try again.");
+                    throw new PasswordValidationException("Your passwords are incorrect. "
+                            + "Try again.");
                 }
             } else {
                 throw new PasswordValidationException("Wrong passwords");
