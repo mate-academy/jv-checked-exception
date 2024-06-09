@@ -10,6 +10,8 @@ public class UserService {
     public void registerUser(User user, String password, String repeatPassword) {
         try {
             passwordValidator.validate(password, repeatPassword);
+            user.setPassword(password);
+            user.setRepeatPassword(repeatPassword);
             saveUser(user);
         } catch (PasswordValidationException e) {
             System.out.println("Your passwords are incorrect. Try again.");
