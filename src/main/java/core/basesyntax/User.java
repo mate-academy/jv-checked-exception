@@ -1,28 +1,22 @@
 package core.basesyntax;
 
 public class User {
-    private String username;
+    private String email;
     private String password;
     private String repeatPassword;
 
-    // Конструктор без аргументов
-    public User() {
-    }
-
-    // Конструктор с аргументами
-    public User(String username, String password, String repeatPassword) {
-        this.username = username;
+    public User(String email, String password, String repeatPassword) {
+        this.email = email;
         this.password = password;
         this.repeatPassword = repeatPassword;
     }
 
-    // Геттеры и сеттеры
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -44,7 +38,7 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-                + "username='" + username + '\''
+                + "email='" + email + '\''
                 + ", password='" + password + '\''
                 + ", repeatPassword='" + repeatPassword + '\''
                 + '}';
