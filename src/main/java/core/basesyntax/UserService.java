@@ -11,7 +11,7 @@ public class UserService {
             System.out.println("Your passwords are incorrect. Try again.");
             return;
         }
-            saveUser(user);
+        saveUser(user);
     }
 
     public void saveUser(User user) {
