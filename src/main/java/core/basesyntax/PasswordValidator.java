@@ -1,7 +1,7 @@
 package core.basesyntax;
 
 public class PasswordValidator {
-    private static final int PASSWORD_MAX_LENGTH = 10;
+    private static final int PASSWORD_MIN_LENGTH = 10;
 
     public boolean validate(String password, String repeatPassword) throws
             PasswordValidationException {
@@ -9,11 +9,14 @@ public class PasswordValidator {
             throw new PasswordValidationException("Password or repeatPassword cannot be null");
         }
 
-        if (password.equals(repeatPassword) && password.length() >= PASSWORD_MAX_LENGTH) {
-            System.out.println("Successful");
-            return true;
+        if (!password.equals(repeatPassword)) {
+            throw new PasswordValidationException("Wrong passwords");
         }
 
-        throw new PasswordValidationException("Wrong passwords");
+        if (password.length() < PASSWORD_MIN_LENGTH) {
+            throw new PasswordValidationException("Password is too short");
+        }
+
+        return true;
     }
 }
