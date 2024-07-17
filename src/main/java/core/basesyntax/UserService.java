@@ -1,8 +1,13 @@
 package core.basesyntax;
 
 public class UserService {
+    private static final PasswordValidator passwordValidator = new PasswordValidator();
+
     public void registerUser(User user) {
-        //write your code here
+        if (user.equals(passwordValidator)) {
+            saveUser(user);
+        }
+        throw new RuntimeException("Your passwords are incorrect. Try again.");
     }
 
     public void saveUser(User user) {
