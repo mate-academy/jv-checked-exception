@@ -5,13 +5,13 @@ public class UserService {
         PasswordValidator passwordValidator = new PasswordValidator();
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-            saveUser(user.getEmail(), user.getPassword());
+            saveUser(user);
         } catch (PasswordValidationException e) {
-            System.out.println("Your passwords is incorrect. Please try again.");
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
-    public void saveUser(String user, String password) {
-        System.out.println("User " + user.toString() + " was saved to database!!!");
+    public void saveUser(User user) {
+        System.out.println("User " + user + " was saved to database!!!");
     }
 }
