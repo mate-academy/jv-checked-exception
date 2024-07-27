@@ -6,8 +6,8 @@ public class UserService {
         try {
             validator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Wrong passwords");
+        } catch (PasswordValidationException e) {
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
