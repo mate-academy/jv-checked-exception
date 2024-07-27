@@ -1,18 +1,33 @@
 package core.basesyntax;
-
 public class UserService {
+
     public void registerUser(User user) {
-        PasswordValidator validator = new PasswordValidator();
         try {
-            validator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
+            System.out.println("User " + user + " was saved to database!!!");
         } catch (PasswordValidationException e) {
             System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
-    public void saveUser(User user) {
-        System.out.println("User " + user.toString() + " was saved to database!!!");
+    public void passwordValidate(String password, String repeatPassword) throws PasswordValidationException {
+        if (password == null || repeatPassword == null) {
+            throw new PasswordValidationException("Passwords cannot be null");
+        }
+        if (password.isEmpty() || repeatPassword.isEmpty()) {
+            throw new PasswordValidationException("Passwords cannot be empty");
+        }
+        if (password.length() < 6) {
+            throw new PasswordValidationException("Passwords must be at least 6 characters long");
+        }
+        if (!password.equals(repeatPassword)) {
+            throw new PasswordValidationException("Passwords do not match");
+        }
+        // Additional validation logic
+    }
+
+    private void saveUser(User user) {
+        // Logic to save user to the database
     }
 }
-
