@@ -1,4 +1,5 @@
 package core.basesyntax;
+
 public class UserService {
 
     public void registerUser(User user) {
@@ -11,7 +12,8 @@ public class UserService {
         }
     }
 
-    public void passwordValidate(String password, String repeatPassword) throws PasswordValidationException {
+    public void passwordValidate(String password, String repeatPassword)
+            throws PasswordValidationException {
         if (password == null || repeatPassword == null) {
             throw new PasswordValidationException("Passwords cannot be null");
         }
@@ -24,10 +26,8 @@ public class UserService {
         if (!password.equals(repeatPassword)) {
             throw new PasswordValidationException("Passwords do not match");
         }
-        // Additional validation logic
     }
 
     private void saveUser(User user) {
-        // Logic to save user to the database
     }
 }
