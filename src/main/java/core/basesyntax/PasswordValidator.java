@@ -6,8 +6,8 @@ public class PasswordValidator {
         if (password == null || repeatPassword == null) {
             throw new PasswordValidationException("Passwords cannot be null");
         }
-        if (repeatPassword.length() < 10 || password.length() < 10 ||
-                !repeatPassword.equals(password)) {
+        if (repeatPassword.length() < 10 || password.length() < 10
+               || !repeatPassword.equals(password)) {
             throw new PasswordValidationException("Wrong passwords");
         }
     }
