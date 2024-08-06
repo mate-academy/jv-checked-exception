@@ -71,7 +71,8 @@ public class UserServiceTest {
     @Test
     public void passwordValidate_exceptionClassHasConstructor() {
         boolean isInputParamPresent =
-            Arrays.stream(PasswordValidationException.class.getConstructors())
+            Arrays.stream(
+                    PasswordValidationException.class.getConstructors())
                 .flatMap(c -> Arrays.stream(c.getParameterTypes()))
                 .anyMatch(t -> t.equals(String.class));
         Assert.assertEquals("Don't hardcode the message in the exception class, "
