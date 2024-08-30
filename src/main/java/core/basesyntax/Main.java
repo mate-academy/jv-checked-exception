@@ -6,5 +6,6 @@ public class Main {
         User user = new User("nikolya.cr@gmail.com", "123456789110", "12345678910");
         UserService service = new UserService();
         service.registerUser(user);
+
     }
 }
