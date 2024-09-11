@@ -4,10 +4,10 @@ public class UserService {
 
     private PasswordValidator passwordvalidator = new PasswordValidator();
 
-    public void registerUser(String password, String repeatPassword) {
+    public void registerUser(User user) {
         try {
-            passwordvalidator.validate(password, repeatPassword);
-            saveUser();
+            passwordvalidator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
             System.out.println("User successfully registered!");
 
         } catch (PasswordValidationException e) {
@@ -15,7 +15,8 @@ public class UserService {
         }
     }
 
-    private void saveUser() {
-        System.out.println("User saved to database");
+    private void saveUser(User user) {
+
+        System.out.println("User " + user.toString() + " was saved to database");
     }
 }
