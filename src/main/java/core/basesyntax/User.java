@@ -40,7 +40,6 @@ public class User {
         return "User{"
             + "email='" + email + '\''
             + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
+            + ", repeatPassword='" + repeatPassword + '\'' + '}';
     }
 }
