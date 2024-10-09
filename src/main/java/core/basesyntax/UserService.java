@@ -1,7 +1,11 @@
 package core.basesyntax;
 
 public class UserService {
-    private PasswordValidator passwordValidator = new PasswordValidator();
+    private PasswordValidator passwordValidator;
+
+    public UserService(PasswordValidator passwordValidator) {
+        this.passwordValidator = passwordValidator;
+    }
     
     public void registerUser(User user) {
         try {
