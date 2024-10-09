@@ -2,7 +2,7 @@ package core.basesyntax;
 
 public class UserService {
     private PasswordValidator passwordValidator;
-    
+
     public UserService(PasswordValidator passwordValidator) {
         this.passwordValidator = passwordValidator;
     }
