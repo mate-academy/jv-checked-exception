@@ -1,9 +1,7 @@
 package core.basesyntax;
 
-public class PasswordValidationException extends Exception {
-    
-    public PasswordValidationException(String message) {
-        super(message);
+public class PasswordValidator {
+    public void validate(String password, String repeatPassword) {
+        //write your code here
     }
-}
 
