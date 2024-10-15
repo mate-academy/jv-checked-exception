@@ -27,20 +27,17 @@ public class User {
         this.password = password;
     }
 
-    public String getRepeatPassword() {
-        return repeatPassword;
+    public boolean validatePassword(String repeatPassword) {
+        return password.equals(repeatPassword);
     }
-
-    public void setRepeatPassword(String repeatPassword) {
-        this.repeatPassword = repeatPassword;
-    }
-
+    public String getRepeatPassword() { return repeatPassword; }
+    public void setRepeatPassword(String repeatPassword) { this.repeatPassword = repeatPassword; }
     @Override
     public String toString() {
         return "User{"
-            + "email='" + email + '\''
-            + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
+                + "email='" + email + '\''
+                + ", password='" + password + '\''
+                + ", repeatPassword='" + repeatPassword + '\''
+                + '}';
     }
 }
