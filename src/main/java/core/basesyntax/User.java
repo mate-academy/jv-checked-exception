@@ -30,8 +30,15 @@ public class User {
     public boolean validatePassword(String repeatPassword) {
         return password.equals(repeatPassword);
     }
-    public String getRepeatPassword() { return repeatPassword; }
-    public void setRepeatPassword(String repeatPassword) { this.repeatPassword = repeatPassword; }
+
+    public String getRepeatPassword() {
+        return repeatPassword;
+    }
+
+    public void setRepeatPassword(String repeatPassword) {
+        this.repeatPassword = repeatPassword;
+    }
+
     @Override
     public String toString() {
         return "User{"
