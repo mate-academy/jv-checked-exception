@@ -43,4 +43,3 @@ public class User {
             + ", repeatPassword='" + repeatPassword + '\''
             + '}';
     }
-}
