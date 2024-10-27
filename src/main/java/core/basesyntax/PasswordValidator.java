@@ -6,6 +6,7 @@ public class PasswordValidator {
     public String getMessage() {
         return message;
     }
+
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
 
