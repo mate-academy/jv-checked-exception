@@ -1,6 +1,8 @@
 package core.basesyntax;
 
-public class PasswordValidationException extends IllegalArgumentException {
+import java.io.IOException;
+
+public class PasswordValidationException extends IOException {
     public PasswordValidationException(String message) {
         super(message);
     }
