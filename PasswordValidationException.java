@@ -1,4 +1,4 @@
-public class PasswordValidationException extends  ArithmeticException{
+public class PasswordValidationException extends  RuntimeException{
     public PasswordValidationException(String message){
         super(message);
     }

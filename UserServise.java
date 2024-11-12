@@ -1,8 +1,8 @@
 import java.util.HashSet;
 public class UserServise {
-    String password;
-    String repeatPassword;
-    PasswordValidator passwordValidator = new PasswordValidator();
+   private String password;
+    private  String repeatPassword;
+   private PasswordValidator passwordValidator = new PasswordValidator();
     HashSet<String> BaseUser = new HashSet<String>();
     public void registerUser(String password,String repeatPassword )  {
      try {
@@ -11,9 +11,7 @@ public class UserServise {
      catch (PasswordValidationException n){
          System.out.println(n);
      }
-
         }
-
     public void SaveUser() {
         BaseUser.add(password);
     }

@@ -1,15 +1,14 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-
     public static void main(String[] args) {
-    UserServise user = new UserServise();
-    user.registerUser("хряк" , "хряк");
-    user.SaveUser();
-    user.registerUser("hih", "hi");
-    user.SaveUser();
-    for(String i : user.BaseUser){
-        System.out.println(i);
+    UserServise userService = new UserServise();
+        userService.registerUser("хрякРыба111" , "хрякРыба111");
+        userService.SaveUser();
+        userService.registerUser("hih", "hi");
+        userService.SaveUser();
+    for(String password : userService.BaseUser){
+        System.out.println(password);
     }
         }
     }
