@@ -12,7 +12,9 @@ public class UserService {
             System.out.println("Your passwords are incorrect. Try again.");
         }
     }
+
     private void saveUser(String email, String password) {
         System.out.println("User with email " + email + " saved to database.");
     }
+
 }
