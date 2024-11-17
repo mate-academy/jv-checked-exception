@@ -7,7 +7,6 @@ private PasswordValidator passwordValidator = new PasswordValidator();
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
         } catch (PasswordValidationException e) {
-            // Обробка виключення
             System.out.println("Your passwords are incorrect. Try again.");
         }
     }
