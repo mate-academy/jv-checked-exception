@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-public class User extends PasswordValidator{
+public class User extends PasswordValidator {
     private String email;
     private String password;
     private String repeatPassword;
