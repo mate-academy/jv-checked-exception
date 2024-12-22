@@ -5,10 +5,10 @@ public class UserService {
         PasswordValidator passwordValidator = new PasswordValidator();
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
         } catch (Exception exception) {
             System.out.println("Your passwords are incorrect. Try again.");
         }
-        saveUser(user);
     }
 
     public void saveUser(User user) {
