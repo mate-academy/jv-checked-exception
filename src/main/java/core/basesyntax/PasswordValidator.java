@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.io.IOException;
-
 public class PasswordValidator {
     public void validate(String password, String repeatPassword)
             throws PasswordValidationException {
