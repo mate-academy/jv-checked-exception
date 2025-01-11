@@ -3,6 +3,12 @@ package core.basesyntax;
 public class PasswordValidator {
     public void validate(String password, String repeatPassword
     ) throws PasswordValidationException {
+        if (password.equals(null) && repeatPassword.equals(null)) {
+            throw new NullPointerException();
+        }
+        if (password.length() == 0) {
+            throw new PasswordValidationException("Empty input");
+        }
         if (!password.equals(repeatPassword)) {
             throw new PasswordValidationException("Wrong passwords");
         }
