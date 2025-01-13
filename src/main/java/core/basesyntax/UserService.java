@@ -7,7 +7,7 @@ public class UserService extends PasswordValidator {
             saveUser(user);
             System.out.println("User registered successfully!");
         } catch (PasswordValidationException e) {
-              System.out.println("Your passwords are incorrect. Try again.");
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
