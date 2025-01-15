@@ -4,11 +4,9 @@ import java.util.Objects;
 
 public class PasswordValidator {
 
-    public boolean validate(String password, String repeatPassword) {
+    public void validate(String password, String repeatPassword) {
 
-    if (password.equals(repeatPassword) && password.length() <= 10) {
-        return true;
-    } else {
+    if (!(password.equals(repeatPassword)) || !(password.length() <= 10)) {
         throw new PasswordValidationException("Wrong passwords");
     }
 
