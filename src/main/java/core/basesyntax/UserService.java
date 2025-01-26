@@ -15,7 +15,7 @@ public class UserService {
             saveUser(user); // Збереження користувача
         } catch (PasswordValidationException e) {
             // Обробка винятку
-            System.out.println("Your passwords are incorrect. Please try again..");
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
