@@ -1,9 +1,11 @@
 package core.basesyntax;
 
+// Клас моделі користувача
 public class User {
     private String email;
     private String password;
     private String repeatPassword;
+
     public User(String email, String password, String repeatPassword) {
         this.email = email;
         this.password = password;
@@ -37,9 +39,9 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-            + "email='" + email + '\''
-            + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
+                + "email='" + email + '\''
+                + ", password='" + password + '\''
+                + ", repeatPassword='" + repeatPassword + '\''
+                + '}';
     }
 }
