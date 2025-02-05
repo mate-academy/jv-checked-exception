@@ -1,7 +1,5 @@
 package core.basesyntax;
 
-import java.net.PasswordAuthentication;
-
 public class UserService {
     public void registerUser(User user) throws PasswordValidationException {
         PasswordValidator passwordValidator = new PasswordValidator();
