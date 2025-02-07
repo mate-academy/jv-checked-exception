@@ -1,4 +1,4 @@
-package main;
+package core.basesyntax;
 
 import services.UserService;
 
