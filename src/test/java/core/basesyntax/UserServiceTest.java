@@ -82,7 +82,7 @@ public class UserServiceTest {
     public void passwordValidate_exceptionClassIsChecked() {
         try {
             User user = new User("login@email", "Test_1233", "Test_12345");
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
         } catch (RuntimeException e) {
             Assert.assertEquals("You should create a checked exception 'PasswordValidationException'\n", true, false);
         } catch (Exception ignored) {
@@ -93,7 +93,7 @@ public class UserServiceTest {
     public void passwordValidate_exceptionExpected() throws Exception {
         try {
             User user = new User("login@email", "Test_1233", "Test_12345");
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
         } catch (Exception e) {
             Assert.assertEquals("Your exception should have a message \"Wrong passwords\"\n",
                 "Wrong passwords", e.getMessage());
@@ -125,7 +125,7 @@ public class UserServiceTest {
     public void passwordValidate_correctInputData() {
         User user = new User("login@email", "Test_12345", "Test_12345");
         try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
         } catch (Exception e) {
             Assert.assertEquals("Checking of passwords doesn't work correctly! " +
                 "We got exception while testing a valid input\n", true, false);
@@ -136,9 +136,9 @@ public class UserServiceTest {
     public void passwordValidate_incorrectInputData() {
         User user = new User("login@email", "test_12345", "Test_12345");
         try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for parameters: "
-                + "password - " + user.getPassword()
+                + "password - " + user.password()
                 + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
         } catch (Exception ignored) {
         }
@@ -148,9 +148,9 @@ public class UserServiceTest {
     public void passwordValidate_shortInputData() {
         User user = new User("login@email", "1111", "1111");
         try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for parameters: "
-                + "password - " + user.getPassword()
+                + "password - " + user.password()
                 + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
         } catch (Exception ignored) {
         }
@@ -160,7 +160,7 @@ public class UserServiceTest {
     public void passwordValidate_emptyInputData() {
         User user = new User("login@email", "", "");
         try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for empty input data\n",
                 true, false);
         } catch (Exception ignored) {
@@ -171,12 +171,12 @@ public class UserServiceTest {
     public void passwordValidate_nullInputData() {
         User user = new User("login@email", null, null);
         try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            passwordValidator.validate(user.password(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for null input data\n",
                 true, false);
         } catch (NullPointerException e) {
             Assert.assertEquals("Validation shouldn't throw NullPointerException for parameters: password - "
-                + user.getPassword() + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
+                + user.password() + " and repeatPassword - " + user.getRepeatPassword() + "\n", true, false);
         } catch (Exception ignored) {
         }
     }
