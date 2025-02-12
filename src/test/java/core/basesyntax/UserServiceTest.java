@@ -24,6 +24,7 @@ public class UserServiceTest {
 
     @Before
     public void beforeTest() {
+
         System.setOut(new PrintStream(outContent));
     }
 
@@ -36,17 +37,17 @@ public class UserServiceTest {
     @Test
     public void registerUser_correctInputData() {
         User user = new User("email@email", "Password#123", "Password#123");
-        userService.registerUser(user);
+        userService.registerUser(user.getEmail(), user.getPassword(), user.getPassword());
         String actualMessage = outContent.toString().trim();
-        String expectedResult = "User " + user.toString() + " was saved to database!!!";
-        Assert.assertEquals("User " + user.toString() + " should be saved. " +
+        String expectedResult = "User " + " was saved to database!!!";
+        Assert.assertEquals("User " + " should be saved. " +
             "Let's call method saveUser()\n", expectedResult, actualMessage);
     }
 
     @Test
     public void registerUser_incorrectInputData() {
         User user = new User("email@email", "123", "123");
-        userService.registerUser(user);
+        userService.registerUser(user.getEmail(), user.getPassword(), user.getPassword());
         String actualMessage = outContent.toString().trim();
         String expectedResult = "Your passwords are incorrect. Try again.";
         Assert.assertEquals("You should print message: \"" + expectedResult
@@ -84,13 +85,13 @@ public class UserServiceTest {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
         } catch (RuntimeException e) {
-            Assert.assertEquals("You should create a checked exception 'PasswordValidationException'\n", true, false);
+            Assert.assertEquals("You should create a checked exception " + "'PasswordValidationException'\n", true, false);
         } catch (Exception ignored) {
         }
     }
 
     @Test
-    public void passwordValidate_exceptionExpected() throws Exception {
+    public void passwordValidate_exceptionExpected() {
         try {
             User user = new User("login@email", "Test_1233", "Test_12345");
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
