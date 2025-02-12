@@ -12,6 +12,7 @@ public class UserService {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
     public void saveUser(String email, String password) {
         System.out.println("User with email " + email + " and password "
                 + password + " was saved to database!!!");

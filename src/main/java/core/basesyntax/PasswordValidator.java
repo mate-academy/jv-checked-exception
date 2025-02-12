@@ -6,6 +6,7 @@ public class PasswordValidator {
         if (password == null || !password.equals(repeatPassword) || password.length() < 10) {
             throw new PasswordValidationException("Wrong password");
         }
+
         //write your code here
     }
 }
