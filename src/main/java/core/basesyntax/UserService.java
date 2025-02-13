@@ -12,7 +12,8 @@ public class UserService {
 
         }
     }
-        public void saveUser (User user) {
+
+    public void saveUser(User user) {
             System.out.println("User " + user.toString() + " was saved to database!!!");
         }
     }
