@@ -11,6 +11,7 @@ public class UserService {
             System.out.println("Your passwords are incorrect. Try again.");
         }
     }
+
     public void saveUser(User user) {
         System.out.println("User " + user.toString() + " was saved to the database!!!");
     }
