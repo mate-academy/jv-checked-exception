@@ -16,6 +16,5 @@ public class UserService {
         User user = new User(password);
 
         System.out.println("User successfully registered with password: " + user.password());
-
     }
 }
