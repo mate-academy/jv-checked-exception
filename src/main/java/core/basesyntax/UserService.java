@@ -17,5 +17,4 @@ public class UserService {
 
         System.out.println("User successfully registered with password: " + user.password());
     }
-
 }
