@@ -1,26 +1,10 @@
 package core.basesyntax;
 
-public class User {
-    private final String email;
-    private final String password;
-    private final String repeatPassword;
-
-    public User(String email, String password, String repeatPassword) {
-        this.email = email;
-        this.password = password;
-        this.repeatPassword = repeatPassword;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getRepeatPassword() {
-        return repeatPassword;
+public record User(String email, String password, String repeatPassword) {
+    public User {
+        if (email == null || !email.contains("@")) {
+            throw new IllegalArgumentException("incorrect email");
+        }
     }
 
     @Override
