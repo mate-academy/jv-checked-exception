@@ -1,8 +1,9 @@
 package core.basesyntax;
 
 public class UserService {
-    private final PasswordValidator passwordValidator = new PasswordValidator();
+    private PasswordValidator passwordValidator = new PasswordValidator();
 
+    // Видаліть усі інші версії методу `registerUser`
     public void registerUser(User user) {
         try {
             passwordValidator.validate(user.password(), user.repeatPassword());
