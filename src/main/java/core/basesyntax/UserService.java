@@ -6,10 +6,10 @@ public class UserService {
         try {
             if (user.getPassword() == null || user.getRepeatPassword() == null) {
                 throw new PasswordValidationException("Your passwords are incorrect. Try again.");
-            } else if (user.getPassword() != null || user.getRepeatPassword() != null) {
-            passwordValidator.validate(user.getPassword(),
+                } else if (user.getPassword() != null || user.getRepeatPassword() != null) {
+                passwordValidator.validate(user.getPassword(),
                     user.getRepeatPassword());
-            saveUser(user);
+                saveUser(user);
             }
         } catch (PasswordValidationException e) {
             System.out.println("Your passwords are incorrect. Try again.");
