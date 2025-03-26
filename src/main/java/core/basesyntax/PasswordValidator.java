@@ -5,7 +5,7 @@ public class PasswordValidator {
             throws PasswordValidationException {
         //write your code here
         if (password == null || repeatPassword == null) {
-            System.out.println("Password shouldn't be empty");
+            throw new PasswordValidationException("Wrong passwords");
         } else if (password.equals(repeatPassword) && password.length() >= 10) {
             System.out.println("Password is valid");
         } else {
