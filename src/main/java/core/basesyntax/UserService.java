@@ -1,5 +1,7 @@
 package core.basesyntax;
 
+import java.io.IOException;
+
 public class UserService {
     public void registerUser(User user) {
         //write your code here
@@ -8,8 +10,8 @@ public class UserService {
         try {
             validator.validate(user.getPassword(), user.getRepeatPassword());
             saveUser(user);
-        } catch (PasswordValidationException e) {
-            throw new PasswordValidationException("Your passwords are incorrect. Try again.");
+        } catch (Exception e) {
+            System.out.println("Your passwords are incorrect. Try again.");
         }
     }
 
