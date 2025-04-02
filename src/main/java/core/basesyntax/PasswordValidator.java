@@ -9,7 +9,7 @@ public class PasswordValidator {
         }
 
         if (!password.equals(repeatPassword)) {
-            throw new PasswordValidationException("Passwords do not match");
+            throw new PasswordValidationException("Wrong passwords");
         }
 
         if (password.length() < 10) {
@@ -17,7 +17,6 @@ public class PasswordValidator {
                    + "It must be at least 10 characters.");
         }
 
-        System.out.println("Your password is correct");
     }
 }
 
