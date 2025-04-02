@@ -13,8 +13,8 @@ public class PasswordValidator {
         }
 
         if (password.length() < 10) {
-            throw new PasswordValidationException("Password is too short. " +
-                    "It must be at least 10 characters.");
+            throw new PasswordValidationException("Password is too short. "
+                   + "It must be at least 10 characters.");
         }
 
         System.out.println("Your password is correct");
