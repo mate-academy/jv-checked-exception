@@ -1,8 +1,24 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package core.basesyntax;
 
 public class UserService {
+    private final PasswordValidator passwordValidator = new PasswordValidator();
+
+    public UserService() {
+    }
+
     public void registerUser(User user) {
-        //write your code here
+        try {
+            this.passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
+            this.saveUser(user);
+        } catch (PasswordValidationException var3) {
+            System.out.println("Your passwords are incorrect. Try again.");
+        }
+
     }
 
     public void saveUser(User user) {
