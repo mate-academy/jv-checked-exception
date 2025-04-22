@@ -13,7 +13,7 @@ public class Main {
         UserService userService = new UserService();
         User user1 = new User("test@example.com", "strongPass1", "strongPass1");
         userService.registerUser(user1);
-        User user2 = new User("bad@example.com", "short", "short");
+        User user2 = new User("bad@example.com", "longPassword1", "longPassword1");
         userService.registerUser(user2);
     }
 }

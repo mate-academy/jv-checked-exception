@@ -16,7 +16,7 @@ public class UserService {
             this.passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             this.saveUser(user);
         } catch (PasswordValidationException var3) {
-            System.out.println("Your passwords are incorrect. Try again.");
+            System.out.println("Registration failed: " + var3.getMessage());
         }
 
     }
