@@ -6,9 +6,9 @@
 package core.basesyntax;
 
 public class User {
-    private String email;
-    private String password;
-    private String repeatPassword;
+    private final String email;
+    private final String password;
+    private final String repeatPassword;
 
     public User(String email, String password, String repeatPassword) {
         this.email = email;
@@ -16,28 +16,12 @@ public class User {
         this.repeatPassword = repeatPassword;
     }
 
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return this.password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getRepeatPassword() {
         return this.repeatPassword;
-    }
-
-    public void setRepeatPassword(String repeatPassword) {
-        this.repeatPassword = repeatPassword;
     }
 
     public String toString() {
