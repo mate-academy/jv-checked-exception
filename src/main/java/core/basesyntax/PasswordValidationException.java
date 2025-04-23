@@ -1,7 +1,6 @@
 //
 // Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
+// (powered by FernFlower dec
 
 package core.basesyntax;
 
