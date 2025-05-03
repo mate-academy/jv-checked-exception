@@ -1,9 +1,8 @@
 package core.basesyntax;
 
 public class User {
-    private String username;
-    private String password;
-    private String repeatPassword; // Add this field
+    private String name;
+    private int age;
 
     // Add a three-argument constructor
     public User(String username, String password, String repeatPassword) {
