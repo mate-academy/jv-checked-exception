@@ -2,8 +2,8 @@ package core.basesyntax;
 
 public class User {
     private String email;
-    private String password;
     private String repeatPassword;
+    private String password;
 
     public User(String email, String password, String repeatPassword) {
         this.email = email;
@@ -38,9 +38,9 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-            + "email='" + email + '\''
-            + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
+                + "email='" + email + '\''
+                + ", password='" + password + '\''
+                + ", repeatPassword='" + repeatPassword + '\''
+                + '}';
     }
 }
