@@ -1,5 +1,3 @@
-package core.basesyntax;
-
 import org.junit.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -14,7 +12,7 @@ public class UserServiceTest {
 
     @BeforeClass
     public static void setUp() {
-        userService = new UserService();
+        userService = new UserService(new UserRepository());
         passwordValidator = new PasswordValidator();
     }
 
@@ -25,15 +23,31 @@ public class UserServiceTest {
 
     @After
     public void afterTest() {
-        outContent.reset();
         System.setOut(originalOut);
+        outContent.reset();
+    }
+
+    @Test
+    public void registerUser_nullUsernameTest() {
+        userService.registerUser(null, "Password123", "Password123");
+        String actualMessage = outContent.toString().trim();
+        String expectedResult = "Error: Username cannot be null or empty. Please try again.";
+        Assert.assertEquals("Null username should print an error message.", expectedResult, actualMessage);
+    }
+
+    @Test
+    public void registerUser_nullRepeatPasswordTest() {
+        userService.registerUser("email@email", "Password123", null);
+        String actualMessage = outContent.toString().trim();
+        String expectedResult = "Error: Passwords cannot be null. Please try again.";
+        Assert.assertEquals("Null repeat password should print an error message.", expectedResult, actualMessage);
     }
 
     @Test
     public void registerUser_validInputTest() {
         userService.registerUser("email@email", "Password#123", "Password#123");
         String actualMessage = outContent.toString().trim();
-        String expectedResult = "User User{username='email@email', password='Password#123'} was saved to database!!!";
+        String expectedResult = "Success: User email@email was successfully saved to the database!";
         Assert.assertEquals("User should be saved when inputs are valid.", expectedResult, actualMessage);
     }
 
@@ -41,7 +55,7 @@ public class UserServiceTest {
     public void registerUser_incorrectPasswordTest() {
         userService.registerUser("email@email", "123", "123");
         String actualMessage = outContent.toString().trim();
-        String expectedResult = "Your passwords are incorrect. Try again.";
+        String expectedResult = "Error: Password must be at least 8 characters long.";
         Assert.assertEquals("Incorrect passwords should print an error message.", expectedResult, actualMessage);
     }
 
@@ -57,18 +71,28 @@ public class UserServiceTest {
             passwordValidator.validate("Password123", "WrongPassword123");  // Mismatched passwords
             Assert.fail("PasswordValidator should throw PasswordValidationException for mismatched passwords.");
         } catch (PasswordValidationException e) {
-            Assert.assertEquals("Wrong passwords", e.getMessage());
+            Assert.assertEquals("Passwords do not match.", e.getMessage());
         }
     }
+
+    @Test
+    public void registerUser_nullInputsTest() {
+        userService.registerUser(null, "Password123", "Password123");
+        String actualMessage = outContent.toString().trim();
+        String expectedResult = "Error: Username cannot be null or empty. Please try again.";
+        Assert.assertEquals("Null inputs should print an error message.", expectedResult, actualMessage);
+    }
+
     @Test
     public void passwordValidator_throwsExceptionForShortPasswords() {
         try {
             passwordValidator.validate("short", "short");  // Short password
             Assert.fail("PasswordValidator should throw PasswordValidationException for short passwords.");
         } catch (PasswordValidationException e) {
-            Assert.assertEquals("Password is too short", e.getMessage());
+            Assert.assertEquals("Password must be at least 8 characters long.", e.getMessage());
         }
     }
+
     private Method getRegisterMethod() {
         return Arrays.stream(UserService.class.getDeclaredMethods())
                 .filter(m -> m.getName().equals("registerUser"))
