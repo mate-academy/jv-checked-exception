@@ -1,3 +1,5 @@
+package core.basesyntax;
+
 import org.junit.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
