@@ -1,46 +1,36 @@
 package core.basesyntax;
 
 public class User {
-    private String email;
+    private String username;
     private String password;
-    private String repeatPassword;
 
-    public User(String email, String password, String repeatPassword) {
-        this.email = email;
+    // Constructor
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
-        this.repeatPassword = repeatPassword;
+    }
+
+    // Getters
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public String getRepeatPassword() {
-        return repeatPassword;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    // Setters
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setRepeatPassword(String repeatPassword) {
-        this.repeatPassword = repeatPassword;
-    }
-
+    // toString method for logging and debugging purposes
     @Override
     public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", repeatPassword='" + repeatPassword + '\'' +
-                '}';
+        return "User{username='" + username + "', password='" + password + "'}";
     }
 }
