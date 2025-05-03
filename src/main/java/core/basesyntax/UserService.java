@@ -2,7 +2,8 @@ package core.basesyntax;
 
 public class UserService {
     private final PasswordValidator passwordValidator = new PasswordValidator();
-    private final UserRepository userRepository = new UserRepository(); // або інший DAO/репозиторій
+    private final UserRepository userRepository = new UserRepository();
+
     public void registerUser(User user, String password, String repeatPassword) {
         try {
             passwordValidator.validate(password, repeatPassword);

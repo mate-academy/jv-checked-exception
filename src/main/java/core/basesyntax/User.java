@@ -12,9 +12,8 @@ public class User {
     public void setUsername() {
         setUsername(null);
     }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername() {
+        this.username = "Guest";
     }
 
     public String getPassword() {
