@@ -1,23 +1,18 @@
 package core.basesyntax;
 
 public class User {
-    private String name;
-    private int age;
+    private String username; // New variable
+    private String email;
+    private String password;
+    private String repeatPassword;
 
-    // Add a three-argument constructor
-    public User(String username, String password, String repeatPassword) {
-        this.username = username;
+    public User(String username, String email, String password, String repeatPassword) {
+        this.username = username; // Initialize username
+        this.email = email;
         this.password = password;
         this.repeatPassword = repeatPassword;
     }
 
-    // Two-argument constructor
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    // Getter and Setter for username
     public String getUsername() {
         return username;
     }
@@ -26,7 +21,14 @@ public class User {
         this.username = username;
     }
 
-    // Getter and Setter for password
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -35,12 +37,21 @@ public class User {
         this.password = password;
     }
 
-    // Getter and Setter for repeatPassword
     public String getRepeatPassword() {
         return repeatPassword;
     }
 
     public void setRepeatPassword(String repeatPassword) {
         this.repeatPassword = repeatPassword;
+    }
+
+    @Override
+    public String toString() {
+        return "User{"
+                + "username='" + username + '\'' // Include username in toString
+                + ", email='" + email + '\''
+                + ", password='" + password + '\''
+                + ", repeatPassword='" + repeatPassword + '\''
+                + '}';
     }
 }
