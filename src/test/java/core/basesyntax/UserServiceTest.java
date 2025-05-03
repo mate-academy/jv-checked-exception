@@ -1,3 +1,5 @@
+package core.basesyntax;
+
 import org.junit.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,8 +14,8 @@ public class UserServiceTest {
 
     @BeforeClass
     public static void setUp() {
-        userService = new UserService(new UserRepository());
         passwordValidator = new PasswordValidator();
+        userService = new UserService(new UserRepository(), passwordValidator);
     }
 
     @Before

@@ -1,20 +1,17 @@
 package core.basesyntax;
 
 public class PasswordValidator {
+    private static final int MIN_PASSWORD_LENGTH = 10;
+
     public void validate(String password, String repeatPassword) throws PasswordValidationException {
-        // Check for null or empty passwords
-        if (password == null || password.isEmpty() || repeatPassword == null || repeatPassword.isEmpty()) {
-            throw new PasswordValidationException("Password cannot be null or empty");
+        if (password == null || repeatPassword == null) {
+            throw new PasswordValidationException("Passwords cannot be null.");
         }
-
-        // Check if passwords match
         if (!password.equals(repeatPassword)) {
-            throw new PasswordValidationException("Wrong passwords");
+            throw new PasswordValidationException("Passwords do not match.");
         }
-
-        // Check for password strength
-        if (password.length() <= 6) {
-            throw new PasswordValidationException("Password is too short");
+        if (password.length() < MIN_PASSWORD_LENGTH) {
+            throw new PasswordValidationException("Password must be at least " + MIN_PASSWORD_LENGTH + " characters long.");
         }
     }
 }
