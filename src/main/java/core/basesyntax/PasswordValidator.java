@@ -7,4 +7,5 @@ public class PasswordValidator {
             throw new PasswordValidationException("Паролі не співпадають");
         }
     }
+
 }
