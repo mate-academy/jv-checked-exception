@@ -120,16 +120,16 @@ public class UserServiceTest {
             .orElseThrow(() -> new RuntimeException("Method validate() should be present " +
                 "in the PasswordValidator class"));
     }
-
     @Test
-    public void passwordValidate_correctInputData() {
-        User user = new User("login@email", "Test_12345", "Test_12345");
-        try {
-            passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
-        } catch (Exception e) {
-            Assert.assertEquals("Checking of passwords doesn't work correctly! " +
-                "We got exception while testing a valid input\n", true, false);
-        }
+    public void registerUser_correctInputData() {
+        User user = new User("email@email", "Password#123", "Password#123");
+        userService.registerUser(user, user.getPassword(), user.getRepeatPassword()); // Pass all required arguments
+        String actualMessage = outContent.toString().trim();
+        String expectedResult = "User " + user.toString() + " was saved to database!!!";
+        Assert.assertEquals(
+                "User " + user.toString() + " should be saved. Let's call method saveUser()\n",
+                expectedResult, actualMessage
+        );
     }
 
     @Test
