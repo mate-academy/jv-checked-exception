@@ -43,4 +43,15 @@ public class User {
             + ", repeatPassword='" + repeatPassword + '\''
             + '}';
     }
+
+    public static void main(String[] args) {
+        UserService userService = new UserService();
+
+        String email = "email@email.com";
+        String password = "Password#123";
+        String repeatPassword = "Password#123";
+        User user = new User(email, password, repeatPassword);
+
+        userService.registerUser(user);
+    }
 }
