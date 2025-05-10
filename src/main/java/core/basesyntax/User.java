@@ -1,9 +1,14 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package core.basesyntax;
 
 public class User {
-    private String email;
-    private String password;
-    private String repeatPassword;
+    private final String email;
+    private final String password;
+    private final String repeatPassword;
 
     public User(String email, String password, String repeatPassword) {
         this.email = email;
@@ -11,36 +16,15 @@ public class User {
         this.repeatPassword = repeatPassword;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        return this.password;
     }
 
     public String getRepeatPassword() {
-        return repeatPassword;
+        return this.repeatPassword;
     }
 
-    public void setRepeatPassword(String repeatPassword) {
-        this.repeatPassword = repeatPassword;
-    }
-
-    @Override
     public String toString() {
-        return "User{"
-            + "email='" + email + '\''
-            + ", password='" + password + '\''
-            + ", repeatPassword='" + repeatPassword + '\''
-            + '}';
+        return "User{email='" + this.email + "'}";
     }
 }
