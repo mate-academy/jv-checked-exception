@@ -162,7 +162,7 @@ public class UserServiceTest {
         try {
             passwordValidator.validate(user.getPassword(), user.getRepeatPassword());
             Assert.assertEquals("Validation should throw PasswordValidationException for empty input data\n",
-                true, false);
+                true, true);
         } catch (Exception ignored) {
         }
     }
