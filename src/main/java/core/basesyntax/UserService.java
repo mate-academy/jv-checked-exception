@@ -1,11 +1,23 @@
 package core.basesyntax;
 
 public class UserService {
-    public void registerUser(User user) {
-        //write your code here
-    }
+    private final UserDatabase userDatabase = new UserDatabase(); // Імітація БД
 
-    public void saveUser(User user) {
-        System.out.println("User " + user.toString() + " was saved to database!!!");
+    /**
+     * Registers a user if the password is valid.
+     *
+     * @param username       user's name
+     * @param password       user's password
+     * @param repeatPassword repeated password for validation
+     */
+    public void registerUser(String username, String password, String repeatPassword) {
+        PasswordValidator validator = new PasswordValidator();
+
+        try {
+            validator.validate(password, repeatPassword);
+            userDatabase.saveUser(username, password);
+        } catch (PasswordValidationException e) {
+            System.out.println("Your passwords are incorrect. Try again.");
+        }
     }
 }
