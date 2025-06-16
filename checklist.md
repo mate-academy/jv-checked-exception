@@ -6,7 +6,7 @@ So always check the final solution for the absence of commented code.
 The main problem is that commented code adds confusion with no real benefit because while reading the code 
 with commented lines in it you will waste time analyzing its purpose and the reason it was added in the first place. 
 
-#### Don’t complicate if-else construction. [Detailed explanation](https://mate-academy.github.io/jv-program-common-mistakes/java-core/complicated-if-else.html)
+#### Don’t complicate if-else construction. Don’t complicate if-else construction. [Detailed explanation](https://mate-academy.github.io/jv-program-common-mistakes/java-core/complicated-if-else.html)
 
 #### Be attentive about the class you extend to declare your exception.
 Should it extend `RuntimeException` or `Exception` and why? (double check task description)
