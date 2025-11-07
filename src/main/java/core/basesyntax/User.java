@@ -6,6 +6,7 @@ public class User {
     private String repeatPassword;
 
     public User(String email, String password, String repeatPassword) {
+
         this.email = email;
         this.password = password;
         this.repeatPassword = repeatPassword;
