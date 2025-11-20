@@ -1,8 +1,6 @@
 package core.basesyntax;
 
-import java.io.IOException;
-
-public class UserService extends PasswordValidator{
+public class UserService extends PasswordValidator {
     public void registerUser(User user) {
         try {
             validate(user.getPassword(), user.getRepeatPassword());
