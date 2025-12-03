@@ -3,7 +3,8 @@ package core.basesyntax;
 public class PasswordValidator {
     private final int allowedLength = 10;
 
-    public void validate(String password, String repeatPassword) {
+    public void validate(String password, String repeatPassword)
+            throws PasswordValidationException {
         if (password == null || password.isEmpty()) {
             throw new PasswordValidationException("Password cannot be empty");
         }
