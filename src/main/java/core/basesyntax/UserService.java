@@ -1,8 +1,16 @@
 package core.basesyntax;
 
 public class UserService {
+    private static final String VALIDATION_FAILED_MESSAGE =
+            "Your passwords are incorrect. Try again.";
+
     public void registerUser(User user) {
-        //write your code here
+        try {
+            new PasswordValidator().validate(user.getPassword(), user.getRepeatPassword());
+            saveUser(user);
+        } catch (PasswordValidationException e) {
+            System.out.println(VALIDATION_FAILED_MESSAGE);
+        }
     }
 
     public void saveUser(User user) {
