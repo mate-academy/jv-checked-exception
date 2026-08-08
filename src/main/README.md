@@ -14,4 +14,4 @@ Method `registerUser()` should call the method `validate()` and handle the excep
 If everything is okay, save the user to the database (use method `saveUser()`),
 if not, print the message "Your passwords are incorrect. Try again.".
 
-#### [Try to avoid these common mistakes while solving task](./checklist.md)
+#### [Try to avoid these common mistakes while solving task](../../checklist.md)
