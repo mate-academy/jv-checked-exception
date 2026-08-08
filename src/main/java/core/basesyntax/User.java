@@ -11,6 +11,9 @@ public class User {
         this.repeatPassword = repeatPassword;
     }
 
+    public User() {
+    }
+
     public String getEmail() {
         return email;
     }
