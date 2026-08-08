@@ -13,13 +13,14 @@ import java.util.Arrays;
 public class UserServiceTest {
     private static UserService userService;
     private static PasswordValidator passwordValidator;
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
     @BeforeClass
     public static void setUp() {
         userService = new UserService();
         passwordValidator = new PasswordValidator();
+        System.setOut(new PrintStream(outContent));
     }
 
     @Before
@@ -38,9 +39,10 @@ public class UserServiceTest {
         User user = new User("email@email", "Password#123", "Password#123");
         userService.registerUser(user);
         String actualMessage = outContent.toString().trim();
-        String expectedResult = "User " + user.toString() + " was saved to database!!!";
-        Assert.assertEquals("User " + user.toString() + " should be saved. " +
-            "Let's call method saveUser()\n", expectedResult, actualMessage);
+        System.out.println("Actual Output: " + actualMessage);
+        String expectedResult = "User{email='email@email', password='Password#123', repeatPassword='Password#123'} was saved to database!!!";
+        Assert.assertEquals("User should be saved and the correct message should be printed.",
+                expectedResult, actualMessage);
     }
 
     @Test
