@@ -1,17 +1,13 @@
-# jv-checked-exception
+# jv-checked-exception --- Допоможімо користувачу зареєструватися :) Ми повинні реалізувати такі методи:
+- `registerUser()` у класі UserService
+- `validate()` у класі PasswordValidator
 
----
-Let's help the user register :)
+Метод `validate()` повинен порівнювати поле `password` з полем `repeatPassword` і перевіряти, чи їх довжина більша або дорівнює 10.
+Якщо ні — викинути виняток `PasswordValidationException` з повідомленням "Wrong passwords"
+(оскільки це наша власна логіка, давайте створимо свій власний, **CHECKED**, виняток, тому що користувач може ввести будь-який пароль, і наш сервіс не повинен ламатися. Ми повинні обробити випадок невалідних даних і повернути зрозуміле повідомлення).
 
-We should implement the following methods:
+Метод `registerUser()` повинен викликати метод `validate()` і обробити виняток.
+Якщо все гаразд — зберегти користувача в базу даних (використати метод `saveUser()`),
+якщо ні — вивести повідомлення "Your passwords are incorrect. Try again.".
 
-- `registerUser()` in UserService class
-- `validate()` in PasswordValidator class
-
-Method `validate()` should compare the `password` field with the `repeatPassword` field and check if their length is more or equal to 10. If not, throw exception `PasswordValidationException` with the message "Wrong passwords" (since it's our custom logic, let's create our own, **CHECKED**, exception because the user can put any password and our service shouldn't be broken. We should handle the not-valid case and return the understandable message).
-
-Method `registerUser()` should call the method `validate()` and handle the exception.
-If everything is okay, save the user to the database (use method `saveUser()`),
-if not, print the message "Your passwords are incorrect. Try again.".
-
-#### [Try to avoid these common mistakes while solving task](./checklist.md)
+#### [Намагайся уникати цих поширених помилок під час виконання завдання](./checklist.md)
