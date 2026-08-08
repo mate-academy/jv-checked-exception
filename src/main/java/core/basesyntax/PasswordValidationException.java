@@ -1,3 +1,8 @@
 package core.basesyntax;
 
-//write your code here
+// Клас для винятків (спеціальна логіка)
+public class PasswordValidationException extends Exception {
+    public PasswordValidationException(String message) {
+        super(message);
+    }
+}
