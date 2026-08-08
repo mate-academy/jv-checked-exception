@@ -18,8 +18,9 @@ public class UserServiceTest {
 
     @BeforeClass
     public static void setUp() {
-        userService = new UserService();
         passwordValidator = new PasswordValidator();
+        userService = new UserService(passwordValidator);
+
     }
 
     @Before
