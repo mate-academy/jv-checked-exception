@@ -1,8 +1,15 @@
 package core.basesyntax;
 
+// import com.sun.source.util.SourcePositions;
+
 public class UserService {
     public void registerUser(User user) {
-        //write your code here
+        try {
+            new PasswordValidator().validate(user.getPassword(), user.getRepeatPassword());
+            this.saveUser(user);
+        } catch (PasswordValidationException e) {
+            System.out.println("Your passwords are incorrect. Try again.");
+        }
     }
 
     public void saveUser(User user) {
