@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import core.basesyntax.User;
 
 public class UserServiceTest {
     private static UserService userService;
@@ -36,7 +37,7 @@ public class UserServiceTest {
     @Test
     public void registerUser_correctInputData() {
         User user = new User("email@email", "Password#123", "Password#123");
-        userService.registerUser(user);
+        userService.registerUser(user.getEmail(), user.getPassword(), user.getRepeatPassword());
         String actualMessage = outContent.toString().trim();
         String expectedResult = "User " + user.toString() + " was saved to database!!!";
         Assert.assertEquals("User " + user.toString() + " should be saved. " +
@@ -46,7 +47,7 @@ public class UserServiceTest {
     @Test
     public void registerUser_incorrectInputData() {
         User user = new User("email@email", "123", "123");
-        userService.registerUser(user);
+        userService.registerUser(user.getEmail(), user.getPassword(), user.getRepeatPassword());
         String actualMessage = outContent.toString().trim();
         String expectedResult = "Your passwords are incorrect. Try again.";
         Assert.assertEquals("You should print message: \"" + expectedResult
