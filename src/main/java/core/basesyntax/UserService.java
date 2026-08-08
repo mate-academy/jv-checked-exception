@@ -1,11 +1,19 @@
 package core.basesyntax;
 
 public class UserService {
+    private final PasswordValidator passwordValidator = new PasswordValidator();
+
     public void registerUser(User user) {
-        //write your code here
+        try {
+            passwordValidator.validate(user.password(), user.repeatPassword());
+            saveUser(user);
+        } catch (PasswordValidationException e) {
+            System.out.println("Ваші паролі неправильні. Повторіть спробу.");
+        }
     }
 
-    public void saveUser(User user) {
-        System.out.println("User " + user.toString() + " was saved to database!!!");
+    private void saveUser(User user) {
+        // Логіка збереження користувача в базі даних
+        System.out.println("Користувача " + user.email() + " збережено в базі даних.");
     }
 }
