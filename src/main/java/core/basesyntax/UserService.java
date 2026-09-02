@@ -11,8 +11,7 @@ public class UserService {
                     user.getRepeatPassword()
             );
             saveUser(user);
-        }
-        catch (PasswordValidationException e) {
+        } catch (PasswordValidationException e) {
             System.out.println("Your password is incorrect. Try again.");
         }
     }
